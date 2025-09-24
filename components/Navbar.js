@@ -14,38 +14,45 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolled ? "bg-[#0A0A0A]/95 shadow-md" : "bg-transparent"
+        scrolled ? "bg-[#1E1E1E]/95 shadow-md" : "bg-[#1E1E1E]"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-20 py-6 flex items-center justify-between">
         {/* Logo */}
-        <Image
-          src="/img/layout/logoHeader.png"
-          alt="Logo Domingo González & Cía"
-          width={160}
-          height={40}
-          priority
-        />
+        <div className="flex items-center">
+          <Image
+            src="/img/layout/logoHeader.png"
+            alt="Logo Domingo González & Cía"
+            width={180}
+            height={50}
+            priority
+          />
+        </div>
 
         {/* Menú */}
-        <ul className="flex flex-row gap-12 font-normal text-[16px]">
+        <ul className="flex flex-row space-x-12 font-['Hanken_Grotesk'] text-[16px] text-white list-none">
           <li>
-            <a href="#inicio" className="text-white/50 hover:text-white transition">
-              Inicio
+            <a href="#home" className="hover:text-gray-300 transition">
+              Home
             </a>
           </li>
           <li>
-            <a href="#nosotros" className="text-white/50 hover:text-white transition">
-              Nosotros
+            <a href="#empresa" className="hover:text-gray-300 transition">
+              La Empresa
             </a>
           </li>
           <li>
-            <a href="#servicios" className="text-white/50 hover:text-white transition">
+            <a href="#servicios" className="hover:text-gray-300 transition">
               Servicios
             </a>
           </li>
           <li>
-            <a href="#contacto" className="text-white/50 hover:text-white transition">
+            <a href="#productos" className="hover:text-gray-300 transition">
+              Producto
+            </a>
+          </li>
+          <li>
+            <a href="#contacto" className="hover:text-gray-300 transition">
               Contacto
             </a>
           </li>

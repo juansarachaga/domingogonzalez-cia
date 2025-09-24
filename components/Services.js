@@ -1,8 +1,8 @@
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-gray-100 text-center">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-12">Nuestros Servicios</h2>
+    <section id="servicios" className="py-20 bg-gray-100 text-black">
+      <div className="mx-auto max-w-[1100px] px-6">
+        <h2 className="text-3xl font-bold mb-12 text-center">Servicios</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="p-6 bg-white shadow rounded">
             <h3 className="text-xl font-semibold mb-4">Servicio 1</h3>
@@ -19,5 +19,5 @@ export default function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }
