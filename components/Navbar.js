@@ -7,13 +7,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setScrolled(window.scrollY > 50)
     }
-
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -35,24 +30,24 @@ export default function Navbar() {
         />
 
         {/* Menú */}
-        <ul className="flex gap-10 text-[16px] font-normal">
+        <ul className="flex gap-10 font-[400] text-[16px]">
           <li>
-            <a href="#" className="text-white/70 hover:text-white transition">
+            <a href="#inicio" className="text-white/50 hover:text-white transition">
               Inicio
             </a>
           </li>
           <li>
-            <a href="#about" className="text-white/70 hover:text-white transition">
+            <a href="#nosotros" className="text-white/50 hover:text-white transition">
               Nosotros
             </a>
           </li>
           <li>
-            <a href="#services" className="text-white/70 hover:text-white transition">
+            <a href="#servicios" className="text-white/50 hover:text-white transition">
               Servicios
             </a>
           </li>
           <li>
-            <a href="#contact" className="text-white/70 hover:text-white transition">
+            <a href="#contacto" className="text-white/50 hover:text-white transition">
               Contacto
             </a>
           </li>

@@ -8,7 +8,11 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
+      <main className="pt-24"> {/* Espacio para compensar la altura del navbar */}
+        <Hero />
+        <About />
+        <Services />
+      </main>
       <Footer />
     </>
   )

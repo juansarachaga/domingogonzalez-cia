@@ -1,7 +1,7 @@
 import { Hanken_Grotesk } from "next/font/google"
 import "./globals.css"
 
-const hankenGrotesk = Hanken_Grotesk({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-hanken",
 })
@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={`${hankenGrotesk.variable} font-sans`}>
+      <body className={`${hanken.variable} font-sans`}>
         {children}
       </body>
     </html>
