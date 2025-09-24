@@ -6,9 +6,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -30,7 +28,7 @@ export default function Navbar() {
         />
 
         {/* Menú */}
-        <ul className="flex gap-10 font-[400] text-[16px]">
+        <ul className="flex flex-row gap-12 font-normal text-[16px]">
           <li>
             <a href="#inicio" className="text-white/50 hover:text-white transition">
               Inicio
