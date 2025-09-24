@@ -1,7 +1,15 @@
+import Navbar from "../components/Navbar"
+import Hero from "../components/Hero"
+import About from "../components/About"
+import Services from "../components/Services"
+import Footer from "../components/Footer"
+
 export default function Home() {
   return (
-    <h1 className="text-4xl font-bold text-blue-700">
-      Hola Domingo González & Cía
-    </h1>
+    <>
+      <Navbar />
+      <Hero />
+      <Footer />
+    </>
   )
 }
