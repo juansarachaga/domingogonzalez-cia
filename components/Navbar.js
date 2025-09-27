@@ -34,7 +34,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-3 flex md:flex-row flex-col md:items-center items-center justify-between md:min-h-[80px] md:max-h-[100px] md:h-[80px] min-h-[120px] h-[120px] p-4 md:p-0">
         {/* Logo */}
-        <div className="md:w-auto w-full flex justify-center md:justify-start items-center mt-8 m-[10px]">
+        <div className="md:w-auto w-full flex justify-center md:justify-start items-center m-[10px]">
           <a href="#home">
             <Image
               src="/img/layout/logoHeader.png"
