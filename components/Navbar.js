@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Menu, X } from "lucide-react" // podés cambiar por Heroicons si querés
+import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -20,34 +20,39 @@ export default function Navbar() {
     { href: "#productos", label: "Producto" },
     { href: "#contacto", label: "Contacto" },
   ]
+//quiero que el logo sea un enlace a la home
+//copilot funciona??
+//que el nav bar tenga un alto minimo de 80px y un maximo de 100px
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-colors duration-300  ${
         scrolled
-          ? "bg-black/70 backdrop-blur-md shadow-md"
-          : "bg-black/50 backdrop-blur-md"
-          
+          ? "bg-[#222]/90 backdrop-blur-md shadow-md"
+          : "bg-[#222]/70 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-12 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-3 flex md:flex-row flex-col md:items-center items-center justify-between md:min-h-[80px] md:max-h-[100px] md:h-[80px] min-h-[120px] h-[120px] p-4 md:p-0">
         {/* Logo */}
-        <Image
-          src="/img/layout/logoHeader.png"
-          alt="Logo Domingo González & Cía"
-          width={280}
-          height={45}
-          priority
-          className="mr-8"
-        />
+        <div className="md:w-auto w-full flex justify-center md:justify-start items-center mt-8 m-[10px]">
+          <a href="#home">
+            <Image
+              src="/img/layout/logoHeader.png"
+              alt="Logo Domingo González & Cía"
+              width={240}
+              height={40}
+              priority
+            />
+          </a>
+        </div>
 
         {/* Menú desktop */}
-        <ul className="hidden md:flex flex-row gap-10 list-none m-0 p-0">
+        <ul className="hidden md:flex items-center gap-10 list-none">
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <a
                 href={href}
-                className="text-white hover:text-red-600 transition font-medium"
+                className="text-white text-lg font-medium tracking-wide hover:text-[#7e797a] transition"
               >
                 {label}
               </a>
@@ -56,24 +61,26 @@ export default function Navbar() {
         </ul>
 
         {/* Botón hamburguesa solo en mobile */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="md:hidden w-full flex justify-center m-[10px] items-center">
+          <button
+            className="md:hidden text-white border border-white p-"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Menú mobile */}
       {isOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md">
+        <div className="md:hidden bg-[#222]/95 backdrop-blur-md">
           <ul className="flex flex-col items-center space-y-6 py-6">
             {navLinks.map(({ href, label }) => (
               <li key={href}>
                 <a
                   href={href}
                   onClick={() => setIsOpen(false)}
-                  className="text-white text-lg hover:text-red-600 transition font-medium"
+                  className="text-white text-lg font-normal hover:text-[#7e797a] transition"
                 >
                   {label}
                 </a>
