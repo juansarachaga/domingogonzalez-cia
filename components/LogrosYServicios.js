@@ -41,13 +41,13 @@ export default function LogrosYServicios() {
   ]
 
   return (
-    <section className="relative w-full py-20 bg-white">
+    <section className="relative w-full py-20 bg-white ">
+      {/* Contenedor de LOGROS */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* --- NUESTROS LOGROS --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-20">
           {/* Texto */}
           <div>
-            <p className="text-[#AE0C21] text-[20px] font-semibold tracking-wide  mt-15 mb-2">
+            <p className="text-[#AE0C21] text-[20px] font-semibold tracking-wide mb-2 mt-30">
               NUESTROS LOGROS
             </p>
             <h2 className="text-[40px] font-normal leading-[100%] text-gray-900">
@@ -56,7 +56,7 @@ export default function LogrosYServicios() {
           </div>
 
           {/* Números */}
-          <div className="flex justify-end items-center gap-12 mt-10">
+          <div className="flex justify-end items-center gap-12 mt-30">
             <div className="text-right ">
               <h3 className="text-[80px] font-semibold text-[#AE0C21] leading-[100%]">
                 70+
@@ -74,12 +74,14 @@ export default function LogrosYServicios() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Línea divisoria superior derecha */}
-        <div className="w-full border-t-[8px] border-[#AE0C21]/10 mb-16"></div>
+      {/* Línea superior izquierda */}
+      <div className="w-1/3 border-t-[8px] border-[#AE0C21]/10 mt-16 mr-auto"></div>
 
-        {/* --- NUESTROS SERVICIOS --- */}
-        <div className="text-center mb-16">
+      {/* Contenedor de SERVICIOS */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-16 mt-16">
           <p className="text-[#AE0C21] text-[25px] font-semibold tracking-wide mb-2">
             NUESTROS SERVICIOS
           </p>
@@ -88,8 +90,7 @@ export default function LogrosYServicios() {
           </h2>
         </div>
 
-        {/* Servicios */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center mb-30">
           {servicios.map((s) => (
             <a
               key={s.id}
@@ -106,16 +107,16 @@ export default function LogrosYServicios() {
               <h3 className="text-[20px] font-medium tracking-[0.05em] text-[#AE0C21] mb-2">
                 {s.nombre}
               </h3>
-              <p className="text-[12px] text-gray-700 leading-[100%]">
+              <p className="text-[18px] text-gray-700 leading-[100%]">
                 {s.texto}
               </p>
             </a>
           ))}
         </div>
-
-        {/* Línea inferior derecha */}
-        <div className="w-full border-t-[8px] border-[#AE0C21]/10 mt-16"></div>
       </div>
+
+      {/* Línea inferior derecha */}
+      <div className="w-1/3 border-t-[8px] border-[#AE0C21]/10 mt-16 ml-auto"></div>
     </section>
   )
 }
