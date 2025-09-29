@@ -18,25 +18,24 @@ export default function Hero() {
           
           {/* Borde en forma de "U" con patitas derechas */}
           <div className="pointer-events-none absolute -top-8 -left-8 z-0 w-[calc(100%+32px)] h-[calc(100%+32px)]"> 
-            {/* Línea izquierda (larga) */} <div className="absolute left-0 top-0 h-full w-0 border-l-8 border-[#AE0C21]" /> 
-            {/* Línea superior (mitad de ancho) */} <div className="absolute left-0 top-0 w-[52%] h-0 border-t-8 border-[#AE0C21]" /> 
-            {/* Línea inferior (mitad de ancho) */} <div className="absolute left-0 bottom-0 w-[52%] h-0 border-b-8 border-[#AE0C21]" /> 
-            {/* Patita derecha arriba */} <div className="absolute top-0 left-[52%] h-20 w-0 border-r-8 border-[#AE0C21]" /> 
-            {/* Patita derecha abajo */} <div className="absolute bottom-0 left-[52%] h-18 w-0 border-r-8 border-[#AE0C21]" /> 
+            <div className="absolute left-0 top-0 h-full w-0 border-l-8 border-[#AE0C21]" /> 
+            <div className="absolute left-0 top-0 w-[52%] h-0 border-t-8 border-[#AE0C21]" /> 
+            <div className="absolute left-0 bottom-0 w-[52%] h-0 border-b-8 border-[#AE0C21]" /> 
+            <div className="absolute top-0 left-[52%] h-20 w-0 border-r-8 border-[#AE0C21]" /> 
+            <div className="absolute bottom-0 left-[52%] h-18 w-0 border-r-8 border-[#AE0C21]" /> 
           </div>
 
-
           {/* Texto */}
-          <span className="font-normal text-[18px] leading-[1] tracking-[0%] mt-15 mb-2 z-10">
+          <span className="font-normal text-[18px] leading-[1] tracking-[0%] mt-15 mb-2 z-10 text-white">
             NOSOTROS
           </span>
-          <h2 className="font-medium text-[50px] leading-[55px] tracking-[0.04em] mb-4 z-10">
+          <h2 className="font-medium text-[50px] leading-[55px] tracking-[0.04em] mb-4 z-10 text-white">
             CALIDAD Y
             <br />
             EXPERIENCIA
           </h2>
           <div className="w-[90vw] max-w-[520px] z-10">
-            <p className="font-normal text-[16px] leading-[1.3] tracking-[0%] mb-6">
+            <p className="font-normal text-[16px] leading-[1.3] tracking-[0%] mb-6 text-white">
               <span className="block">
                 Nuestra experiencia nos permite garantizar una
               </span>

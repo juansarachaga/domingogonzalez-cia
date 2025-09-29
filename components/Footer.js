@@ -80,7 +80,7 @@ export default function Footer() {
       {/* Línea inferior */}
       <div className="border-t border-gray-200 py-6">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center text-[13px] md:text-[15px] text-gray-500 text-center">
-          <p className="mb-3 md:mb-5 mt-5">Todos los derechos reservados 2025.</p>
+          <p className="mb-3 md:mb-10">Todos los derechos reservados 2025.</p>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
             <a href="#privacidad" className="hover:text-red-700 transition">Políticas de Privacidad</a>
             <span className="hidden sm:block">-</span>
