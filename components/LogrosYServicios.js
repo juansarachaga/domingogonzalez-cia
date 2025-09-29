@@ -50,25 +50,25 @@ export default function LogrosYServicios() {
             <p className="text-[#AE0C21] text-[20px] font-semibold tracking-wide mb-2 mt-30">
               NUESTROS LOGROS
             </p>
-            <h2 className="text-[40px] font-normal leading-[100%] text-gray-900">
+            <h2 className="text-[32px] sm:text-[40px] font-normal leading-[110%] text-gray-900">
               Compromiso en lo nuestro, <br /> un cliente a la vez.
             </h2>
           </div>
 
           {/* Números */}
-          <div className="flex justify-end items-center gap-12 mt-30">
-            <div className="text-right ">
-              <h3 className="text-[80px] font-semibold text-[#AE0C21] leading-[100%]">
+          <div className="flex justify-end items-center gap-12 mt-10 md:mt-30">
+            <div className="text-right">
+              <h3 className="text-[60px] sm:text-[80px] font-semibold text-[#AE0C21] leading-[100%]">
                 70+
               </h3>
-              <p className="text-gray-600 text-sm">Años de experiencia</p>
+              <p className="text-gray-600 text-sm sm:text-base">Años de experiencia</p>
             </div>
             <div className="border-l-2 border-gray-300 h-16"></div>
             <div className="text-right">
-              <h3 className="text-[80px] font-semibold text-[#AE0C21] leading-[100%]">
+              <h3 className="text-[60px] sm:text-[80px] font-semibold text-[#AE0C21] leading-[100%]">
                 50+
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm sm:text-base">
                 Empresas que confían día a día
               </p>
             </div>
@@ -77,25 +77,26 @@ export default function LogrosYServicios() {
       </div>
 
       {/* Línea superior izquierda */}
-      <div className="w-1/3 border-t-[8px] border-[#AE0C21]/10 mt-16 mr-auto"></div>
+      <div className="w-1/3 border-t-[8px] border-[#AE0C21]/10 mt-12 mr-auto"></div>
 
       {/* Contenedor de SERVICIOS */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16 mt-16">
-          <p className="text-[#AE0C21] text-[25px] font-semibold tracking-wide mb-2">
+        <div className="text-center mb-12 mt-16">
+          <p className="text-[#AE0C21] text-[22px] sm:text-[25px] font-semibold tracking-wide mb-2">
             NUESTROS SERVICIOS
           </p>
-          <h2 className="text-[32px] md:text-[36px] font-normal leading-[120%] text-gray-900">
+          <h2 className="text-[28px] sm:text-[32px] md:text-[36px] font-normal leading-[120%] text-gray-900">
             Expertos en nutrición animal: <br /> de la fábrica a cada especie.
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center mb-30">
+        {/* Grid de servicios */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 text-center mb-20">
           {servicios.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="p-4 rounded-md transition duration-300 hover:shadow-lg hover:border hover:border-[#AE0C21] group"
+              className="p-4 rounded-md border border-transparent transition duration-300 md:hover:shadow-lg md:hover:border-[#AE0C21] group min-h-[220px] flex flex-col"
             >
               <Image
                 src={s.img}
@@ -104,10 +105,10 @@ export default function LogrosYServicios() {
                 height={60}
                 className="mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
               />
-              <h3 className="text-[20px] font-medium tracking-[0.05em] text-[#AE0C21] mb-2">
+              <h3 className="text-[18px] sm:text-[20px] font-medium tracking-[0.05em] text-[#AE0C21] mb-2">
                 {s.nombre}
               </h3>
-              <p className="text-[18px] text-gray-700 leading-[100%]">
+              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-snug flex-1">
                 {s.texto}
               </p>
             </a>
@@ -116,7 +117,7 @@ export default function LogrosYServicios() {
       </div>
 
       {/* Línea inferior derecha */}
-      <div className="w-1/3 border-t-[8px] border-[#AE0C21]/10 mt-16 ml-auto"></div>
+      <div className="w-1/3 border-t-[8px] border-[#AE0C21]/10 mt-12 ml-auto"></div>
     </section>
   )
 }
