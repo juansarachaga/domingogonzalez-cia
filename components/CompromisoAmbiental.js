@@ -43,7 +43,7 @@ export default function CompromisoAmbiental() {
         {/* --- BLOQUE 2 --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
           {/* Imagen */}
-          <div className="relative order-1 md:order-none">
+          <div className="relative order-1 md:order-none mb-30">
             <div className="absolute -left-3 top-3 w-full h-full bg-[#AE0C21] -z-10"></div>
             <Image
               src="/img/home/vacasCalcio.png"

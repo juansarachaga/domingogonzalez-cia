@@ -32,7 +32,8 @@ export default function Navbar() {
           : "bg-[#222]/70 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-3 flex md:flex-row flex-col md:items-center items-center justify-between md:min-h-[80px] md:max-h-[100px] md:h-[80px] min-h-[120px] h-[120px] p-4 md:p-0">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 flex md:flex-row flex-col md:items-center items-center justify-between md:min-h-[80px] md:max-h-[100px] md:h-[80px] min-h-[100px] h-[100px]">
+
         {/* Logo */}
         <div className="md:w-auto w-full flex justify-center md:justify-start items-center m-[10px]">
           <a href="#home">
