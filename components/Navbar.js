@@ -1,11 +1,14 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { usePathname } from "next/navigation" // 👈 para saber en qué ruta estoy
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname() // 👈 ruta actual
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -14,11 +17,11 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#empresa", label: "La Empresa" },
-    { href: "#servicios", label: "Servicios" },
-    { href: "#productos", label: "Producto" },
-    { href: "#contacto", label: "Contacto" },
+    { href: "/", label: "Home" },
+    { href: "/la-empresa", label: "La Empresa" },
+    { href: "/#servicios", label: "Servicios" },
+    { href: "/#productos", label: "Productos" },
+    { href: "/#contacto", label: "Contacto" },
   ]
 
   return (
@@ -29,15 +32,11 @@ export default function Navbar() {
           : "bg-[#222]/70 backdrop-blur-sm"
       }`}
     >
-      {/* Contenedor principal */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-3
-                      flex md:flex-row flex-col md:items-center items-center justify-between
-                      md:min-h-[80px] md:max-h-[100px] md:h-[80px] min-h-[100px] h-[100px]">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-3 flex md:flex-row flex-col md:items-center items-center justify-between md:h-[80px] h-[100px]">
         
         {/* Logo */}
-        <div className="md:w-auto w-full flex justify-center md:justify-start items-center m-[10px]
-                        max-[1300px]:ml-6"> {/* <=1300px: margen izquierdo */}
-          <a href="#home">
+        <div className="md:w-auto w-full flex justify-center md:justify-start items-center m-[10px] max-[1300px]:ml-6">
+          <Link href="/">
             <Image
               src="/img/layout/logoHeader.png"
               alt="Logo Domingo González & Cía"
@@ -45,28 +44,31 @@ export default function Navbar() {
               height={40}
               priority
             />
-          </a>
+          </Link>
         </div>
 
         {/* Menú desktop */}
-        <ul className="hidden md:flex items-center gap-8 list-none
-                       max-[1300px]:mr-6"> {/* <=1300px: margen derecho */}
-          {navLinks.map(({ href, label }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className="text-white text-sm md:text-base lg:text-lg font-medium tracking-wide hover:text-[#7e797a] transition"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
+        <ul className="hidden md:flex items-center gap-8 list-none max-[1300px]:mr-6">
+          {navLinks.map(({ href, label }) => {
+            const isActive = pathname === href || (href.startsWith("/#") && pathname === "/")
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={`text-sm md:text-base lg:text-lg font-medium tracking-wide transition 
+                    ${isActive ? "text-white" : "text-white/60 hover:text-white/80"}`}
+                >
+                  {label}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
 
-        {/* Botón hamburguesa en mobile */}
+        {/* Botón hamburguesa */}
         <div className="md:hidden w-full flex justify-center m-[10px] items-center">
           <button
-            className="md:hidden text-white border border-white p-2 rounded-md"
+            className="text-white border border-white p-2 rounded-md"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -78,17 +80,21 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-[#222]/95 backdrop-blur-md">
           <ul className="flex flex-col items-center space-y-6 py-6">
-            {navLinks.map(({ href, label }) => (
-              <li key={href}>
-                <a
-                  href={href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-white text-lg font-normal hover:text-[#7e797a] transition"
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map(({ href, label }) => {
+              const isActive = pathname === href || (href.startsWith("/#") && pathname === "/")
+              return (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg font-normal transition 
+                      ${isActive ? "text-white" : "text-white/60 hover:text-white/80"}`}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}
