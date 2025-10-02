@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(req: NextRequest) {
-  // 🚨 Solo aplicar bloqueo en producción
-  if (process.env.NODE_ENV !== 'production') {
+  // 🚨 Solo aplicar bloqueo si está habilitado por variable de entorno
+  if (process.env.REQUIRE_PASSWORD !== 'true') {
     return NextResponse.next()
   }
 
@@ -23,7 +23,7 @@ export function middleware(req: NextRequest) {
     return res
   }
 
-  // Si no tiene acceso → mostrar formulario simple
+  // Si no tiene acceso → mostrar formulario
   return new NextResponse(
     `<!DOCTYPE html>
     <html lang="es">
@@ -86,7 +86,7 @@ export function middleware(req: NextRequest) {
   )
 }
 
-// ✅ El middleware solo se aplica a páginas, no a assets ni imágenes
+// ✅ El middleware se aplica solo a páginas, no a assets ni imágenes
 export const config = {
   matcher: [
     '/((?!_next/static|_next/image|favicon.ico|robots.txt|img/).*)',
