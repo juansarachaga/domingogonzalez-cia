@@ -41,10 +41,10 @@ export default function CompromisoCuadroRojo() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="text-white flex flex-col space-y-4 px-4 md:px-8 mt-10 mb-10 m-[40px]"
+              className="text-white flex flex-col space-y-4 px-4 md:px-8 mt-10 mb-10 m-[40px] mobile-ajuste"
             >
               {/* Número */}
-              <span className="font-['Hanken_Grotesk'] font-normal text-[50px] leading-[100%] text-white/40">
+              <span className="numero font-['Hanken_Grotesk'] font-normal text-[50px] leading-[100%] text-white/40">
                 {item.numero}
               </span>
               {/* Título */}
@@ -59,6 +59,20 @@ export default function CompromisoCuadroRojo() {
           ))}
         </div>
       </div>
+
+      {/* CSS interno para mobile */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .mobile-ajuste {
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+          .mobile-ajuste .numero {
+            text-align: left;
+            display: block;
+          }
+        }
+      `}</style>
     </section>
   )
 }

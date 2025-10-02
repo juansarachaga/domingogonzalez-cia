@@ -20,22 +20,23 @@ export default function Navbar() {
     { href: "#productos", label: "Producto" },
     { href: "#contacto", label: "Contacto" },
   ]
-//quiero que el logo sea un enlace a la home
-//copilot funciona??
-//que el nav bar tenga un alto minimo de 80px y un maximo de 100px
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-colors duration-300  ${
+      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
         scrolled
           ? "bg-[#222]/90 backdrop-blur-md shadow-md"
           : "bg-[#222]/70 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-12 py-3 flex md:flex-row flex-col md:items-center items-center justify-between md:min-h-[80px] md:max-h-[100px] md:h-[80px] min-h-[100px] h-[100px]">
-
+      {/* Contenedor principal */}
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-12 py-3
+                      flex md:flex-row flex-col md:items-center items-center justify-between
+                      md:min-h-[80px] md:max-h-[100px] md:h-[80px] min-h-[100px] h-[100px]">
+        
         {/* Logo */}
-        <div className="md:w-auto w-full flex justify-center md:justify-start items-center m-[10px]">
+        <div className="md:w-auto w-full flex justify-center md:justify-start items-center m-[10px]
+                        max-[1300px]:ml-6"> {/* <=1300px: margen izquierdo */}
           <a href="#home">
             <Image
               src="/img/layout/logoHeader.png"
@@ -48,12 +49,13 @@ export default function Navbar() {
         </div>
 
         {/* Menú desktop */}
-        <ul className="hidden md:flex items-center gap-10 list-none">
+        <ul className="hidden md:flex items-center gap-8 list-none
+                       max-[1300px]:mr-6"> {/* <=1300px: margen derecho */}
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <a
                 href={href}
-                className="text-white text-lg font-medium tracking-wide hover:text-[#7e797a] transition"
+                className="text-white text-sm md:text-base lg:text-lg font-medium tracking-wide hover:text-[#7e797a] transition"
               >
                 {label}
               </a>
@@ -61,10 +63,10 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Botón hamburguesa solo en mobile */}
+        {/* Botón hamburguesa en mobile */}
         <div className="md:hidden w-full flex justify-center m-[10px] items-center">
           <button
-            className="md:hidden text-white border border-white p-"
+            className="md:hidden text-white border border-white p-2 rounded-md"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
