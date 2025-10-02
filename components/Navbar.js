@@ -1,14 +1,14 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { usePathname } from "next/navigation" // 👈 para saber en qué ruta estoy
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname() // 👈 ruta actual
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -19,9 +19,9 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/la-empresa", label: "La Empresa" },
-    { href: "/#servicios", label: "Servicios" },
-    { href: "/#productos", label: "Productos" },
-    { href: "/#contacto", label: "Contacto" },
+    { href: "/servicios", label: "Servicios" },
+    { href: "/productos", label: "Productos" },
+    { href: "/contacto", label: "Contacto" },
   ]
 
   return (
@@ -50,7 +50,7 @@ export default function Navbar() {
         {/* Menú desktop */}
         <ul className="hidden md:flex items-center gap-8 list-none max-[1300px]:mr-6">
           {navLinks.map(({ href, label }) => {
-            const isActive = pathname === href || (href.startsWith("/#") && pathname === "/")
+            const isActive = pathname === href
             return (
               <li key={href}>
                 <Link
@@ -81,7 +81,7 @@ export default function Navbar() {
         <div className="md:hidden bg-[#222]/95 backdrop-blur-md">
           <ul className="flex flex-col items-center space-y-6 py-6">
             {navLinks.map(({ href, label }) => {
-              const isActive = pathname === href || (href.startsWith("/#") && pathname === "/")
+              const isActive = pathname === href
               return (
                 <li key={href}>
                   <Link
