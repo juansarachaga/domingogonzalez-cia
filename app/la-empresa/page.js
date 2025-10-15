@@ -4,6 +4,7 @@ import Footer from "@/components/Footer"
 import Hero from "@/components/la-empresa/hero-empresa"
 import NuestraHistoria from "@/components/la-empresa/nuestraHistoria"
 import PoliticasDeCalidad from "@/components/la-empresa/politicasDeCalidad"
+import DescargaCertificados from "@/components/la-empresa/descargaCertificados"
 import AliadosEstrategicos from "@/components/Aliados"      
 
 export default function LaEmpresaPage() {
@@ -13,6 +14,7 @@ export default function LaEmpresaPage() {
       <Hero/>
       <NuestraHistoria />
       <PoliticasDeCalidad />
+      <DescargaCertificados />
       <AliadosEstrategicos />
       <Contacto />
       <Footer />

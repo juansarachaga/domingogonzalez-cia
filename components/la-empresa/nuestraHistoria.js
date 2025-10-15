@@ -63,7 +63,7 @@ export default function NuestraHistoria() {
           </p>
 
           {/* --- Recuadro con abertura inferior --- */}
-          <div className="relative border-[8px] border-[#AE0C21]/10 p-8 md:p-10 max-w-5xl mx-auto nh-quote-box">
+          <div className="relative border-[8px] border-[#AE0C21]/10 p-8 md:p-10 w-[90%] lg:w-[80%] xl:w-[100%] mx-auto nh-quote-box">
             <p className="text-[36px] md:text-[46px] font-semibold text-[#AE0C21] leading-[100%] mt-10 mb-10 nh-quote">
               “Dar antes que recibir”
             </p>
