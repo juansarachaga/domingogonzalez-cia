@@ -6,6 +6,7 @@ import NuestraHistoria from "@/components/la-empresa/nuestraHistoria"
 import PoliticasDeCalidad from "@/components/la-empresa/politicasDeCalidad"
 import DescargaCertificados from "@/components/la-empresa/descargaCertificados"
 import AliadosEstrategicos from "@/components/Aliados"      
+import PreguntasFrecuentes from "@/components/la-empresa/preguntasFrecuentes"      
 
 export default function LaEmpresaPage() {
   return (
@@ -16,6 +17,7 @@ export default function LaEmpresaPage() {
       <PoliticasDeCalidad />
       <DescargaCertificados />
       <AliadosEstrategicos />
+      <PreguntasFrecuentes />
       <Contacto />
       <Footer />
     </>
