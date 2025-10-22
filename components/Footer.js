@@ -164,7 +164,7 @@ export default function Footer() {
             </p>
 
             <a
-              href="https://wa.me/5492216427311?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web."
+              href="https://wa.me/5492268455176?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-[#AE0C21] hover:bg-[#8B091A] text-white font-semibold 
