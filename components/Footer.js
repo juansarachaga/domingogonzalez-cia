@@ -2,7 +2,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons"
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 
 export default function Footer() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Columna logo + texto */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <Image
-              src="/img/layout/logoGris.png"
+              src="/img/layout/logoHeaderRojo.png"
               alt="Logo Domingo González & Cía"
               width={180}
               height={45}
@@ -31,7 +31,8 @@ export default function Footer() {
           </div>
 
           {/* Menús */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+          <div className="grid grid-cols-2 md:grid-cols-[1fr_1fr_1fr_1.2fr] gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-center md:text-left">
+
             {/* Columna 1 */}
             <div>
               <h3 className="text-[14px] md:text-[15px] font-semibold mb-4">
@@ -58,7 +59,10 @@ export default function Footer() {
 
             {/* Columna 3 */}
             <div>
-              <h3 className="text-[14px] md:text-[15px] font-semibold mb-4">Nuestro Producto</h3>
+             <h3 className="text-[14px] md:text-[15px] font-semibold mb-4 whitespace-nowrap">
+  Nuestro Producto
+</h3>
+
               <ul className="space-y-2">
                 <li><a href="#suplemento" className="hover:text-[#AE0C21] transition">Suplemento</a></li>
                 <li><a href="#aliados" className="hover:text-[#AE0C21] transition">Aliados</a></li>
@@ -69,19 +73,34 @@ export default function Footer() {
             {/* Columna 4 */}
             <div>
               <h3 className="text-[14px] md:text-[15px] font-semibold mb-4">Contacto</h3>
-              <p className="text-[14px] md:text-[15px] text-gray-700 mb-1">info@mail.com</p>
-              <p className="text-[14px] md:text-[15px] text-gray-700 mb-4">(000) 000-0000</p>
-              <div className="flex justify-center md:justify-start gap-3">
-                <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full bg-[#AE0C21] text-white hover:bg-[#8B091A] transition">
-                  <FontAwesomeIcon icon={faInstagram} size="lg" />
-                </a>
-                <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full bg-[#AE0C21] text-white hover:bg-[#8B091A] transition">
-                  <FontAwesomeIcon icon={faXTwitter} size="lg" />
-                </a>
-                <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full bg-[#AE0C21] text-white hover:bg-[#8B091A] transition">
-                  <FontAwesomeIcon icon={faYoutube} size="lg" />
-                </a>
-              </div>
+              
+              {/* Mails */}
+             <p className="text-[13px] sm:text-[14px] md:text-[15px] text-gray-700 mb-1 break-words">
+  <a href="mailto:ventas@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
+    ventas@domgonsa.com.ar
+  </a>
+</p>
+<p className="text-[13px] sm:text-[14px] md:text-[15px] text-gray-700 mb-4 break-words">
+  <a href="mailto:domgonsa@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
+    domgonsa@domgonsa.com.ar
+  </a>
+</p>
+
+
+          {/* Teléfono con ícono WhatsApp */}
+<div className="flex items-center justify-center md:justify-start text-gray-700 mt-2">
+  <a 
+    href="https://wa.me/5492268455176?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web." 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="flex items-center text-[14px] md:text-[15px] hover:text-[#AE0C21] transition whitespace-nowrap"
+  >
+    <FontAwesomeIcon icon={faWhatsapp} size="lg" className="text-gray-700 mr-[2px] flex-shrink-0" />
+    +54&nbsp;9&nbsp;2268&nbsp;45-5176
+  </a>
+</div>
+
+
             </div>
           </div>
         </div>
@@ -93,7 +112,10 @@ export default function Footer() {
                        text-[13px] md:text-[15px] text-gray-500 text-center mt-4
                        max-[1366px]:max-w-[1200px] max-[1366px]:px-8"
           >
-            <p className="mb-3 md:mb-10">Todos los derechos reservados 2025.</p>
+            <p className="mb-3 md:mb-10">
+  Todos los derechos reservados {new Date().getFullYear()}.
+</p>
+
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-10">
               <a href="#privacidad" className="hover:text-[#AE0C21] transition">Políticas de Privacidad</a>
               <span className="hidden sm:block">-</span>
@@ -120,17 +142,14 @@ export default function Footer() {
       {/* --- MINI VENTANA DE WHATSAPP --- */}
       {isDialogOpen && (
         <div className="fixed bottom-24 right-3 sm:right-20 z-[10000] w-[94%] sm:w-[90%] max-w-sm bg-[#2b2b2b] rounded-2xl shadow-2xl border border-[#AE0C21] p-7 animate-fadeIn ">
-          {/* Botón cerrar */}
           <button
             onClick={() => setIsDialogOpen(false)}
-            className="absolute top-3 right-3 text-white  hover:text-gray-200"
+            className="absolute top-3 right-3 text-white hover:text-gray-200"
           >
             ✕
           </button>
 
-          {/* Contenido */}
           <div className="rounded-xl p-7 text-center shadow-sm mt-15 mb-20 ml-10 mr-10">
-            {/* Logo */}
             <Image
               src="/img/layout/logoHeader.png"
               alt="Logo Domingo González & Cía"
@@ -141,18 +160,18 @@ export default function Footer() {
 
             <h3 className="text-white font-semibold text-[18px] mt-10 mb-3">¡Hola! 👋</h3>
             <p className="text-white text-[16px] mb-7 leading-relaxed">
-              Gracias por tu visita. Si querés hacer una <br/> consulta o pedido, escribinos por WhatsApp.
+              Gracias por tu visita. Si querés hacer una <br /> consulta o pedido, escribinos por WhatsApp.
             </p>
 
             <a
               href="https://wa.me/5492216427311?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web."
               target="_blank"
               rel="noopener noreferrer"
-             className="inline-flex items-center justify-center gap-3 bg-[#AE0C21] hover:bg-[#8B091A] text-white font-semibold 
+              className="inline-flex items-center justify-center gap-3 bg-[#AE0C21] hover:bg-[#8B091A] text-white font-semibold 
              px-8 py-3 rounded-full text-[17px] transition-all duration-200 shadow-md 
-             w-[45%] sm:w-auto mx-auto"              onClick={() => setIsDialogOpen(false)}
+             w-[45%] sm:w-auto mx-auto"
+              onClick={() => setIsDialogOpen(false)}
             >
-              {/* SVG WhatsApp */}
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" viewBox="0 0 48 48" fill="none" className="ml-1">
                 <path
                   fill="#ffffff"

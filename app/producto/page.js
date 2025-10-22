@@ -5,6 +5,7 @@ import Hero from "@/components/producto/hero-producto"
 import PorQueElegir from "@/components/producto/porQueElegir"
 import FuenteNatural from "@/components/producto/fuenteNaturalRojo"
 import ComoLoHacemos from "@/components/producto/comoLoHacemos" 
+import Granulometrias from "@/components/producto/granulometrias"
 import NuestrosProductos from "@/components/producto/nuestrosProductos" 
   
 
@@ -16,6 +17,7 @@ export default function LaEmpresaPage() {
       <PorQueElegir />
       <FuenteNatural/>
       <ComoLoHacemos/>
+      <Granulometrias/>
       <NuestrosProductos/>
       <Contacto />
       <Footer />
