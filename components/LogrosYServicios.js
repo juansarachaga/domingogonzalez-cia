@@ -6,35 +6,35 @@ export default function LogrosYServicios() {
     {
       id: "aves",
       nombre: "AVES",
-      img: "/img/home/animalesIcon/gallina.png",
+      img: "/img/animalesIcon/gallina.png",
       texto:
         "Favorece la formación de cáscaras de huevo de calidad y mantiene la salud ósea en todas las etapas.",
     },
     {
       id: "bovinos",
       nombre: "BOVINOS",
-      img: "/img/home/animalesIcon/vaca.png",
+      img: "/img/animalesIcon/vaca.png",
       texto:
         "Suplemento mineral esencial para cubrir los requerimientos de calcio en ganado bovino.",
     },
     {
       id: "cerdos",
       nombre: "CERDOS",
-      img: "/img/home/animalesIcon/cerdo.png",
+      img: "/img/animalesIcon/cerdo.png",
       texto:
         "El calcio es esencial en la dieta de cerdos y se recomienda su uso como suplemento mineral.",
     },
     {
       id: "equinos",
       nombre: "EQUINOS",
-      img: "/img/home/animalesIcon/caballo.png",
+      img: "/img/animalesIcon/caballo.png",
       texto:
         "Ayuda a fortalecer huesos y dientes, previene deficiencias nutricionales y se adapta a su necesidad.",
     },
     {
       id: "otros",
       nombre: "OTROS",
-      img: "/img/home/animalesIcon/gato.png",
+      img: "/img/animalesIcon/gato.png",
       texto:
         "Garantiza un aporte seguro y uniforme de calcio, esencial para la salud ósea y dental.",
     },
