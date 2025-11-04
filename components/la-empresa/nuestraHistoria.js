@@ -1,12 +1,17 @@
 "use client"
-import React from "react"
-import Image from "next/image"
+import React, { useState } from "react" // 1. Importamos useState
+// 2. Eliminamos la importación de 'next/image' que causa el error
+// import Image from "next/image" 
 
 export default function NuestraHistoria() {
+  // 3. Añadimos un estado para rastrear el error del video
+  const [videoHasError, setVideoHasError] = useState(false);
+
   return (
     <section className="relative w-full bg-white py-20 mt-20 nh-section overflow-x-hidden">
+      
+      {/* --- Contenido Superior (centrado) --- */}
       <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
-
         {/* --- Título principal --- */}
         <p className="text-[#AE0C21] text-[20px] font-light tracking-[0.05em] uppercase mb-2">
           NUESTRA HISTORIA
@@ -26,7 +31,7 @@ export default function NuestraHistoria() {
           {[
             { n: "10k", t: "Gallinas\nponedoras" },
             { n: "5k", t: "Cerdos en\ncría y engorde" },
-            { n: "3k", t: "Bovinos de\nleche y carne" },
+            { n: "3k", t: "Bovinos de\nleche y carne" }, 
             { n: "2k", t: "Conejos y\notros animales" },
           ].map((e, i) => (
             <React.Fragment key={i}>
@@ -40,18 +45,48 @@ export default function NuestraHistoria() {
             </React.Fragment>
           ))}
         </div>
+      </div>
+      {/* --- Fin del Contenido Superior --- */}
 
-        {/* --- Imagen y texto histórico --- */}
+
+      {/* --- Video (Contenedor más ancho) --- */}
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 text-center overflow-hidden">
+        {/*
+          Este contenedor mantiene la relación de aspecto del video (16:9).
+        */}
+        <div className="w-full mx-auto rounded-sm mb-10 overflow-hidden shadow-xl aspect-video">
+          {/* 4. Renderizado condicional */}
+          {videoHasError ? (
+            // Si hay un error, mostramos la imagen original
+            // Reemplazamos <Image> por <img> estándar
+            <img
+              src="/img/la-empresa/nuestraHistoria.png"
+              alt="Nuestra Historia"
+              className="w-full h-full object-cover" // Hacemos que la imagen llene el contenedor
+            />
+          ) : (
+            // Si no, intentamos cargar el video
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/Mna-fFDjIw0?rel=0&autoplay=1&mute=1&loop=1&playlist=Mna-fFDjIw0"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              loading="lazy" 
+              onError={() => setVideoHasError(true)} // 5. Si el iframe falla, actualizamos el estado
+            ></iframe>
+          )}
+        </div>
+      </div>
+      {/* --- Fin del Video --- */}
+
+
+      {/* --- Contenido Inferior (centrado) --- */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
+        {/* Este div w-full era el que tenías antes, lo mantenemos por consistencia */}
         <div className="w-full max-w-[1800px] mx-auto text-center overflow-hidden">
-          <Image
-            src="/img/la-empresa/nuestraHistoria.png"
-            alt="Nuestra Historia"
-            width={1900}
-            height={800}
-            className="w-full h-auto object-cover mx-auto rounded-sm mb-10"
-            priority
-          />
-
           <h3 className="text-[24px] md:text-[32px] font-medium text-[#000000] leading-snug mb-6 px-4 nh-text mx-auto">
             Todo comenzó con Don Domingo, quien vio el valor del carbonato de calcio. 
             La empresa creció con esfuerzo, innovación y compromiso.
@@ -73,6 +108,8 @@ export default function NuestraHistoria() {
           </div>
         </div>
       </div>
+      {/* --- Fin del Contenido Inferior --- */}
+
 
       {/* 🎯 CSS local con prioridad en mobile */}
       <style jsx>{`
@@ -131,3 +168,4 @@ export default function NuestraHistoria() {
     </section>
   )
 }
+
