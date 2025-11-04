@@ -1,47 +1,92 @@
 @import "tailwindcss";
 
+
+
 :root {
+
   --background: #ffffff;
+
   --foreground: #171717;
+
 }
+
+
 
 * {
+
   padding: 0;
+
   box-sizing: border-box;
+
 }
+
+
 
 html {
+
   scroll-behavior: smooth;
+
 }
+
+
 
 body {
+
   color: var(--foreground);
+
   background: var(--background);
+
   font-family: 'Hanken Grotesk', Arial, Helvetica, sans-serif;
+
   line-height: 1.6;
+
   -webkit-font-smoothing: antialiased;
+
   -moz-osx-font-smoothing: grayscale;
+
 }
+
+
 
 html, body {
+
   max-width: 100%;
+
   overflow-x: hidden; /* Evita scroll horizontal por desbordes */
+
 }
+
 img, video {
+
   max-width: 100%;
+
   height: auto;
+
 }
+
+
 
 /* En pantallas de hasta 768px (tablet y mobile) */
+
 @media (max-width: 768px) {
+
   body *:not(img):not(video) {
-    
+
+   
+
     margin-left: auto;              /* Centra horizontalmente */
+
     margin-right: auto;
+
   }
+
 }
 
+
+
 .container-custom {
+
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-12;
+
 }
 

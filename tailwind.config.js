@@ -4,6 +4,8 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    // agrega ./src si usás esa carpeta
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -12,24 +14,21 @@ module.exports = {
           red: "#FF0000",
           black: "#0A0A0A",
         },
-
-        screens: {
-    "xl-1300": "1300px",   // notebooks 14-15"
-    "xl-1366": "1366px",   // resolución clásica de 14"
-  },
       },
       fontFamily: {
         sans: ["var(--font-hanken)", "sans-serif"],
       },
       screens: {
-        // 👇 breakpoints adicionales
-        "xl-1300": "1300px",   // notebooks de 14-15" con FHD escalado raro
-        "xl-1366": "1366px",   // resolución muy común en 14"
-        "xxl": "1440px",       // Macbook Pro / monitores grandes
-        "uhd": "1920px",       // monitores full HD de escritorio
+        // ✅ breakpoint para 768–1215 px
+        mid: { raw: "(min-width: 768px) and (max-width: 1215px)" },
+
+        // ✅ el resto de tus breakpoints extra
+        "xl-1300": "1300px",
+        "xl-1366": "1366px",
+        xxl: "1440px",
+        uhd: "1920px",
       },
     },
   },
   plugins: [],
 }
-

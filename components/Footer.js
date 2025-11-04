@@ -13,29 +13,29 @@ export default function Footer() {
         {/* Contenedor principal */}
         <div
           className="max-w-7xl mx-auto px-6 lg:px-12 py-12 
-                     grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 md:mt-20 mb-10
+                     grid grid-cols-1 min-[1228px]:grid-cols-2 gap-10 mt-10 min-[1228px]:mt-20 mb-10
                      max-[1366px]:max-w-[1200px] max-[1366px]:px-8"
         >
           {/* Columna logo + texto */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="flex flex-col items-center min-[1228px]:items-start text-center min-[1228px]:text-left">
             <Image
               src="/img/layout/logoHeaderRojo.png"
               alt="Logo Domingo González & Cía"
               width={180}
               height={45}
-              className="mb-4 md:w-[250px] md:h-[60px] w-[180px] h-auto"
+              className="mb-4 min-[1228px]:w-[250px] min-[1228px]:h-[60px] w-[180px] h-auto"
             />
-            <p className="text-[14px] md:text-[15px] font-normal leading-snug text-gray-700 max-w-xs md:max-w-sm">
+            <p className="text-[14px] min-[1228px]:text-[15px] font-normal leading-snug text-gray-700 max-w-xs min-[1228px]:max-w-sm">
               Trabajamos cerca del productor, con compromiso y conocimiento del campo.
             </p>
           </div>
 
           {/* Menús */}
-          <div className="grid grid-cols-2 md:grid-cols-[1fr_1fr_1fr_1.2fr] gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-center md:text-left">
+          <div className="grid grid-cols-2 min-[1228px]:grid-cols-[1fr_1fr_1fr_1.2fr] gap-3 sm:gap-4 min-[1228px]:gap-6 lg:gap-8 text-center min-[1228px]:text-left">
 
             {/* Columna 1 */}
             <div>
-              <h3 className="text-[14px] md:text-[15px] font-semibold mb-4">
+              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">
                 La Empresa
               </h3>
               <ul className="space-y-2">
@@ -47,7 +47,7 @@ export default function Footer() {
 
             {/* Columna 2 */}
             <div>
-              <h3 className="text-[14px] md:text-[15px] font-semibold mb-4">Servicios</h3>
+              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">Servicios</h3>
               <ul className="space-y-2">
                 <li><a href="#aves" className="hover:text-[#AE0C21] transition">Aves</a></li>
                 <li><a href="#bovinos" className="hover:text-[#AE0C21] transition">Bovinos</a></li>
@@ -59,10 +59,9 @@ export default function Footer() {
 
             {/* Columna 3 */}
             <div>
-             <h3 className="text-[14px] md:text-[15px] font-semibold mb-4 whitespace-nowrap">
-  Nuestro Producto
-</h3>
-
+              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4 whitespace-nowrap">
+                Nuestro Producto
+              </h3>
               <ul className="space-y-2">
                 <li><a href="#suplemento" className="hover:text-[#AE0C21] transition">Suplemento</a></li>
                 <li><a href="#aliados" className="hover:text-[#AE0C21] transition">Aliados</a></li>
@@ -72,35 +71,32 @@ export default function Footer() {
 
             {/* Columna 4 */}
             <div>
-              <h3 className="text-[14px] md:text-[15px] font-semibold mb-4">Contacto</h3>
+              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">Contacto</h3>
               
               {/* Mails */}
-             <p className="text-[13px] sm:text-[14px] md:text-[15px] text-gray-700 mb-1 break-words">
-  <a href="mailto:ventas@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
-    ventas@domgonsa.com.ar
-  </a>
-</p>
-<p className="text-[13px] sm:text-[14px] md:text-[15px] text-gray-700 mb-4 break-words">
-  <a href="mailto:domgonsa@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
-    domgonsa@domgonsa.com.ar
-  </a>
-</p>
+              <p className="text-[13px] sm:text-[14px] min-[1228px]:text-[15px] text-gray-700 mb-1 break-words">
+                <a href="mailto:ventas@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
+                  ventas@domgonsa.com.ar
+                </a>
+              </p>
+              <p className="text-[13px] sm:text-[14px] min-[1228px]:text-[15px] text-gray-700 mb-4 break-words">
+                <a href="mailto:domgonsa@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
+                  domgonsa@domgonsa.com.ar
+                </a>
+              </p>
 
-
-          {/* Teléfono con ícono WhatsApp */}
-<div className="flex items-center justify-center md:justify-start text-gray-700 mt-2">
-  <a 
-    href="https://wa.me/5492268455176?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web." 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="flex items-center text-[14px] md:text-[15px] hover:text-[#AE0C21] transition whitespace-nowrap"
-  >
-    <FontAwesomeIcon icon={faWhatsapp} size="lg" className="text-gray-700 mr-[2px] flex-shrink-0" />
-    +54&nbsp;9&nbsp;2268&nbsp;45-5176
-  </a>
-</div>
-
-
+              {/* Teléfono con ícono WhatsApp */}
+              <div className="flex items-center justify-center min-[1228px]:justify-start text-gray-700 mt-2">
+                <a 
+                  href="https://wa.me/5492268455176?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center text-[14px] min-[1228px]:text-[15px] hover:text-[#AE0C21] transition whitespace-nowrap"
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} size="lg" className="text-gray-700 mr-[2px] flex-shrink-0" />
+                  +54&nbsp;9&nbsp;2268&nbsp;45-5176
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -108,15 +104,15 @@ export default function Footer() {
         {/* Línea inferior */}
         <div className="border-t border-gray-200 py-6">
           <div
-            className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center
-                       text-[13px] md:text-[15px] text-gray-500 text-center mt-4
+            className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col min-[1228px]:flex-row justify-between items-center
+                       text-[13px] min-[1228px]:text-[15px] text-gray-500 text-center mt-4
                        max-[1366px]:max-w-[1200px] max-[1366px]:px-8"
           >
-            <p className="mb-3 md:mb-10">
-  Todos los derechos reservados {new Date().getFullYear()}.
-</p>
+            <p className="mb-3 min-[1228px]:mb-10">
+              Todos los derechos reservados {new Date().getFullYear()}.
+            </p>
 
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-10">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center mb-10 min-[1228px]:mb-0">
               <a href="#privacidad" className="hover:text-[#AE0C21] transition">Políticas de Privacidad</a>
               <span className="hidden sm:block">-</span>
               <a href="#terminos" className="hover:text-[#AE0C21] transition">Términos y Condiciones</a>
@@ -172,7 +168,7 @@ export default function Footer() {
              w-[45%] sm:w-auto mx-auto"
               onClick={() => setIsDialogOpen(false)}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" viewBox="0 0 48 48" fill="none" className="ml-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26" viewBox="0 0 48 48" fill="none">
                 <path
                   fill="#ffffff"
                   d="M24 9C15.72 9 9 15.72 9 24c0 2.6.67 5.07 1.93 7.29L9 39l7.89-2.07A15 15 0 0 0 24 39c8.28 0 15-6.72 15-15S32.28 9 24 9zm0 27a12 12 0 0 1-6.07-1.67l-.43-.25-4.5 1.18 1.2-4.37-.27-.43A12 12 0 1 1 36 24c0 6.63-5.37 12-12 12z"
