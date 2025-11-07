@@ -2,14 +2,12 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section
+   <section
       id="home"
-      className="relative w-full h-screen md:h-[750px] flex items-center"
-      style={{
-        backgroundImage: "url('/img/home/banner.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative w-full h-screen md:h-[800px] flex items-center 
+                 bg-cover bg-center 
+                 bg-[url('/img/home/banner.png')] 
+                 md:bg-[url('/img/home/banner.png')]"
     >
       {/* Overlay con gradiente */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#AE0C21]/70 to-[#2A2A2A]/70 mix-blend-multiply"></div>

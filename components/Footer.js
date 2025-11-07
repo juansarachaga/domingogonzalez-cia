@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
 
           {/* Menús */}
-          <div className="grid grid-cols-2 min-[1228px]:grid-cols-[1fr_1fr_1fr_1.2fr] gap-3 sm:gap-4 min-[1228px]:gap-6 lg:gap-8 text-center min-[1228px]:text-left">
+          <div className="grid grid-cols-2 min-[1228px]:grid-cols-[1fr_1fr_1fr_1.2fr] gap-3 sm:gap-4 min-[1228px]:gap-6 lg:gap-8 text-center min-[1228px]:text-left mt-3">
 
             {/* Columna 1 */}
             <div>

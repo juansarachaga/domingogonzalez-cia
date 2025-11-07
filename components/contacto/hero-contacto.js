@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full h-[400px] md:h-[600px] lg:h-[750px] flex items-center"
+      className="relative w-full h-[400px] md:h-[450px] lg:h-[550px] flex items-center"
     >
       {/* Imagen optimizada con Next */}
       <Image

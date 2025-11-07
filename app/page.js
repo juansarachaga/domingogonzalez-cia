@@ -17,7 +17,7 @@ export default function Home() {
 
       </main>
       <LogrosYServicios />
-      <CompromisoAmbiental />
+      {/* <CompromisoAmbiental /> */}
       <CompromisoCuadroRojo />
       <Aliados />
       <Contacto />
