@@ -55,7 +55,7 @@ export default function ComoLoHacemos() {
         </h2>
 
         {/* Íconos */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 gap-x-6 md:gap-x-12 justify-items-center">
+        <div className="como-hacemos-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-10 gap-x-6 md:gap-x-12 justify-items-center">
           {pasos.map((item, i) => (
             <div key={i} className="flex flex-col items-center text-center max-w-[200px]">
               <Image
@@ -121,6 +121,28 @@ export default function ComoLoHacemos() {
           }
           .como-hacemos-section p {
             font-size: 14px;
+          }
+        }
+
+        /* 👇 NUEVO: forzar versión mobile en celu horizontal */
+        @media (orientation: landscape) and (max-width: 900px) {
+          .como-hacemos-section {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+
+          .como-hacemos-section h2 {
+            font-size: 26px;
+            line-height: 120%;
+          }
+
+          .como-hacemos-section p {
+            font-size: 14px;
+          }
+
+          .como-hacemos-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            column-gap: 16px !important;
           }
         }
       `}</style>

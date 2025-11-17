@@ -4,9 +4,9 @@ import React, { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 
 const DescargaCertificados = () => {
-useEffect(() => {
-  const style = document.createElement("style");
-  style.innerHTML = `
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
     /* --- Desktop amplio (≥1258px) --- */
     @media (min-width: 1258px) {
       .left-bar {
@@ -27,7 +27,7 @@ useEffect(() => {
       }
     }
 
-    /* --- Intermedio (1257px → 1158px): más cerca de los bordes --- */
+    /* --- Intermedio (1450px → 1158px): más cerca de los bordes --- */
     @media (max-width: 1450px) and (min-width: 1158px) {
       .left-bar {
         position: absolute;
@@ -47,7 +47,7 @@ useEffect(() => {
       }
     }
 
-    /* --- 💣 Ocultar completamente por debajo de 1157px --- */
+    /* --- Ocultar barras por debajo de 1157px --- */
     @media (max-width: 1157px) {
       .left-bar,
       .right-bar {
@@ -74,13 +74,29 @@ useEffect(() => {
         width: calc(100% - 40px) !important;
       }
     }
-  `;
-  document.head.appendChild(style);
-  return () => document.head.removeChild(style);
-}, []);
 
+    /* 👇 NUEVO: cuando el celu está en horizontal, forzar versión mobile */
+    @media (orientation: landscape) and (max-width: 900px) {
+      .descarga-certificados-container {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
 
+      .descarga-certificados-container > div {
+        width: 100% !important;
+        text-align: center !important;
+      }
 
+      .descarga-certificados-container a {
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        width: calc(100% - 40px) !important;
+      }
+    }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
 
   const certificados = [
     { nombre: "Ver Certificado del SENASA", archivo: "/docs/cert-senasa.pdf" },
@@ -96,7 +112,6 @@ useEffect(() => {
 
       {/* Contenido principal */}
       <div className="descarga-certificados-container w-full max-w-[1100px] flex flex-col md:flex-row justify-between items-center md:items-start gap-16 px-6 md:px-16 z-10 mt-30 mb-30">
-  
         {/* Bloque de texto */}
         <div className="w-full md:w-1/2 text-center md:text-left">
           <p

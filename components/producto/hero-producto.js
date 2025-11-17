@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-     className="relative w-full h-[400px] md:h-[450px] lg:h-[550px] flex items-center"
+      className="hero-producto relative w-full h-[400px] md:h-[450px] lg:h-[550px] flex items-center"
     >
       {/* Imagen optimizada con Next */}
       <Image
@@ -48,6 +48,15 @@ export default function Hero() {
       <nav className="w-full flex justify-center items-center py-4 absolute top-0 left-0 z-20">
         {/* Aquí va el contenido del navbar */}
       </nav>
+
+      {/* 👇 Margen solo en celular horizontal */}
+      <style jsx>{`
+        @media (orientation: landscape) and (max-width: 900px) {
+          .hero-producto {
+            margin-top: 30px;
+          }
+        }
+      `}</style>
     </section>
   )
 }

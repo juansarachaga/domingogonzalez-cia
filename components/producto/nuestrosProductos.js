@@ -92,10 +92,8 @@ La suplementación debe adaptarse a la edad y etapa productiva de cada animal pa
   const info = textos[activo]
 
   return (
-    <section className="relative w-full py-20 bg-white">
+    <section className="relative w-full py-20 bg-white np-section">
       <div className="max-w-7xl mx-auto mt-20">
-        
-
         {/* Galería siempre horizontal */}
         <div className="flex w-full h-[360px] sm:h-[420px]">
           {productos.map((p) => (
@@ -143,7 +141,6 @@ La suplementación debe adaptarse a la edad y etapa productiva de cada animal pa
                 ) : (
                   <span
                     className="mt-6 text-white text-[14px] sm:text-[14px] px-6 py-2 sm:px-6 sm:py-2 rounded-full"
-
                     style={{
                       fontFamily: "Hanken Grotesk, sans-serif",
                       fontWeight: 600,
@@ -152,7 +149,7 @@ La suplementación debe adaptarse a la edad y etapa productiva de cada animal pa
                       padding: "8px 16px",
                     }}
                   >
-                   Conocer más
+                    Conocer más
                   </span>
                 )}
               </div>
@@ -161,38 +158,68 @@ La suplementación debe adaptarse a la edad y etapa productiva de cada animal pa
         </div>
 
         {/* Panel informativo */}
-        <div className="mt-14 mx-auto px-4 sm:px-10 md:px-12 text-left bg-white max-w-[90%] sm:max-w-4xl md:max-w-5xl">
-  <h3 className="text-[30px] sm:text-[40px] font-normal mb-6 sm:mb-8 text-black">
-    {info.titulo}
-  </h3>
+        <div className="np-panel mt-14 mx-auto px-4 sm:px-10 md:px-12 text-left bg-white max-w-[90%] sm:max-w-4xl md:max-w-5xl">
+          <h3 className="text-[30px] sm:text-[40px] font-normal mb-6 sm:mb-8 text-black">
+            {info.titulo}
+          </h3>
 
-  <p className="whitespace-pre-line text-[18px] sm:text-[20px] leading-[160%] mb-10 sm:mb-12 text-black">
-    {info.descripcion}
-  </p>
+          <p className="whitespace-pre-line text-[18px] sm:text-[20px] leading-[160%] mb-10 sm:mb-12 text-black">
+            {info.descripcion}
+          </p>
 
-  <h4 className="text-[26px] sm:text-[32px] font-normal mb-8 text-black">
-    {info.dosisTitulo}
-  </h4>
+          <h4 className="text-[26px] sm:text-[32px] font-normal mb-8 text-black">
+            {info.dosisTitulo}
+          </h4>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 mb-12">
-    {info.dosis.map((d, i) => (
-      <div key={i} className="text-center sm:text-left">
-        <p className="text-[22px] uppercase tracking-[0.05em] mb-2 text-[#AE0C21] font-medium">
-          {d.label}
-        </p>
-        <p className="text-[32px] sm:text-[40px] text-black">
-          {d.valor}
-        </p>
+          <div className="np-dosis-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6 mb-12">
+            {info.dosis.map((d, i) => (
+              <div key={i} className="text-center sm:text-left">
+                <p className="text-[22px] uppercase tracking-[0.05em] mb-2 text-[#AE0C21] font-medium">
+                  {d.label}
+                </p>
+                <p className="text-[32px] sm:text-[40px] text-black">
+                  {d.valor}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[18px] sm:text-[20px] text-[#BBBBBB] leading-[150%]">
+            {info.nota}
+          </p>
+        </div>
       </div>
-    ))}
-  </div>
 
-  <p className="text-[18px] sm:text-[20px] text-[#BBBBBB] leading-[150%]">
-    {info.nota}
-  </p>
-</div>
+      {/* 🔧 CSS para modo horizontal mobile */}
+      <style jsx>{`
+        @media (orientation: landscape) and (max-width: 900px) {
+          .np-section {
+            padding-top: 16px;
+            padding-bottom: 40px;
+          }
 
-      </div>
+          .np-panel {
+            max-width: 100% !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            text-align: center !important;
+          }
+
+          .np-panel h3,
+          .np-panel h4,
+          .np-panel p {
+            text-align: center !important;
+          }
+
+          .np-dosis-grid {
+            grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+          }
+
+          .np-dosis-grid > div {
+            text-align: center !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

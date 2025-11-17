@@ -50,7 +50,7 @@ const GranulometriasDisponibles = () => {
         }
       }
 
-      /* --- 💣 Ocultar barras en resoluciones menores --- */
+      /* --- Ocultar barras en resoluciones menores --- */
       @media (max-width: 1157px) {
         .left-bar, .right-bar {
           display: none !important;
@@ -77,6 +77,34 @@ const GranulometriasDisponibles = () => {
           text-align: center !important;
         }
       }
+
+      /* 👇 NUEVO: forzar versión mobile en celu horizontal */
+      @media (orientation: landscape) and (max-width: 900px) {
+        .granulometria-container {
+          flex-direction: column !important;
+          align-items: center !important;
+          text-align: center !important;
+          gap: 2rem !important;
+        }
+
+        .granulo-text,
+        .granulo-list {
+          width: 100% !important;
+          text-align: center !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        .granulo-text::before {
+          display: none !important;
+        }
+
+        .granulometria-container ul li {
+          text-align: center !important;
+        }
+      }
     `;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
@@ -84,16 +112,14 @@ const GranulometriasDisponibles = () => {
 
   return (
     <section className="relative w-full bg-[rgba(217,217,217,0.3)] py-24 flex justify-center overflow-hidden mt-20">
-
-      {/* Barras laterales */}
-      {/* <div className="hidden md:block left-bar" /> */}
-     
+      {/* Barras laterales (si las volvés a usar) */}
+      {/* <div className="hidden md:block left-bar" />
+          <div className="hidden md:block right-bar" /> */}
 
       {/* Contenido principal */}
       <div className="granulometria-container relative z-10 w-full max-w-[1100px] flex flex-col md:flex-row justify-between items-start md:items-start gap-16 px-6 md:px-16 mt-20 mb-20">
         {/* Bloque de texto principal */}
-        <div className="relative w-full md:w-1/2 text-left pl-6 md:pl-12 before:content-[''] before:absolute before:left-[-4rem] before:top-0 before:bottom-0 before:border-l-[4px] before:border-[#D9D9D9] mr-6">
-
+        <div className="granulo-text relative w-full md:w-1/2 text-left pl-6 md:pl-12 before:content-[''] before:absolute before:left-[-4rem] before:top-0 before:bottom-0 before:border-l-[4px] before:border-[#D9D9D9] mr-6">
           <p
             className="uppercase mb-4"
             style={{
@@ -135,7 +161,7 @@ const GranulometriasDisponibles = () => {
         </div>
 
         {/* Bloque de lista */}
-        <div className="w-full md:w-1/2 text-left md:text-left pr-4 md:pr-16 ml-80">
+        <div className="granulo-list w-full md:w-1/2 text-left md:text-left pr-4 md:pr-16 ml-80">
           <ul className="space-y-3 md:space-y-4">
             {[
               "Tipo Nº2 - Aves (Ponedoras)",

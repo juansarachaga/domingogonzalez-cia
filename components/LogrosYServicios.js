@@ -128,7 +128,7 @@ export default function LogrosYServicios() {
       </div>
 
       {/* Línea inferior derecha */}
-      <div className="w-11/3 border-t-[8px] border-[#AE0C21]/10 mt-12 ml-auto" />
+      {/* <div className="w-11/3 border-t-[8px] border-[#AE0C21]/10 mt-12 ml-auto" /> */}
     </section>
   )
 }

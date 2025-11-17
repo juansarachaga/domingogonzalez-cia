@@ -11,10 +11,10 @@ export default function PorQueElegir() {
 
   return (
     <section className="w-full bg-white py-20 mt-32 sm:mt-40 pqe-section">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-between px-6 sm:px-12 gap-16 sm:gap-20">
+      <div className="pqe-container max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:items-start justify-between px-6 sm:px-12 gap-16 sm:gap-20">
         
         {/* Columna de texto */}
-        <div className="sm:w-1/3 text-center sm:text-left px-2">
+        <div className="pqe-text sm:w-1/3 text-center sm:text-left px-2">
           <p
             className="uppercase text-[#AE0C21] text-[18px] tracking-[0.05em] mb-3"
             style={{
@@ -36,7 +36,7 @@ export default function PorQueElegir() {
           </h3>
 
           <p
-            className="text-[16px] text-black leading-[160%] max-w-[360px] mx-auto sm:mx-0 px-4 sm:px-0"
+            className="pqe-parrafo text-[16px] text-black leading-[160%] max-w-[360px] mx-auto sm:mx-0 px-4 sm:px-0"
             style={{
               fontFamily: "Hanken Grotesk, sans-serif",
               fontWeight: 400,
@@ -47,29 +47,31 @@ export default function PorQueElegir() {
         </div>
 
         {/* Íconos */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 sm:gap-x-10 sm:gap-y-0 w-full sm:w-2/3 mt-8 sm:mt-4 px-4 sm:px-0">
-          {iconos.map((icono, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center text-center max-w-[140px] sm:max-w-[160px] mx-auto"
-            >
-              <Image
-                src={icono.src}
-                alt={icono.texto}
-                width={80}
-                height={80}
-                className="mb-3 object-contain"
-              />
-              <p
-                className="text-[16px] text-[#707070] leading-[120%]"
-                style={{
-                  fontFamily: "Hanken Grotesk, sans-serif",
-                  fontWeight: 400,
-                }}
-                dangerouslySetInnerHTML={{ __html: icono.texto }}
-              />
-            </div>
-          ))}
+        <div className="pqe-icons w-full sm:w-2/3 mt-8 sm:mt-4 px-4 sm:px-0">
+          <div className="pqe-icons-grid grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 sm:gap-x-10 sm:gap-y-0 w-full">
+            {iconos.map((icono, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center text-center max-w-[140px] sm:max-w-[160px] mx-auto"
+              >
+                <Image
+                  src={icono.src}
+                  alt={icono.texto}
+                  width={80}
+                  height={80}
+                  className="mb-3 object-contain"
+                />
+                <p
+                  className="text-[16px] text-[#707070] leading-[120%]"
+                  style={{
+                    fontFamily: "Hanken Grotesk, sans-serif",
+                    fontWeight: 400,
+                  }}
+                  dangerouslySetInnerHTML={{ __html: icono.texto }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -118,6 +120,37 @@ export default function PorQueElegir() {
 
           .pqe-section p {
             font-size: 15px;
+          }
+        }
+
+        /* 👇 NUEVO: forzar layout mobile + centrado vertical en celu horizontal */
+        @media (orientation: landscape) and (max-width: 900px) {
+          .pqe-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+          }
+
+          .pqe-container {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+
+          .pqe-text,
+          .pqe-icons {
+            width: 100% !important;
+            text-align: center !important;
+          }
+
+          .pqe-parrafo {
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+
+          .pqe-icons-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            row-gap: 24px !important;
           }
         }
       `}</style>

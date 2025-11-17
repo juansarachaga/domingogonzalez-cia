@@ -88,7 +88,7 @@ export default function NuestraHistoria() {
         {/* Este div w-full era el que tenías antes, lo mantenemos por consistencia */}
         <div className="w-full max-w-[1800px] mx-auto text-center overflow-hidden">
           <h3 className="text-[24px] md:text-[32px] font-medium text-[#000000] leading-snug mb-6 px-4 nh-text mx-auto">
-            Todo comenzó con Don Domingo, quien vio el valor del carbonato de calcio. 
+            Todo comenzó con Don Domingo, quien vio el valor del carbonato de calcio. <br/>
             La empresa creció con esfuerzo, innovación y compromiso.
           </h3>
 

@@ -24,8 +24,10 @@ export default function CompromisoCuadroRojo() {
 
   return (
     <section className="w-full bg-[#AE0C21] py-16">
+      {/* Margen superior de 30px con mismo background */}
+      <div className="h-[50px]" />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Grid con bordes y espacio interno */}
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Línea izquierda */}
           <span
@@ -43,15 +45,12 @@ export default function CompromisoCuadroRojo() {
               key={i}
               className="text-white flex flex-col space-y-4 px-4 md:px-8 mt-10 mb-10 m-[40px] mobile-ajuste"
             >
-              {/* Número */}
               <span className="numero font-['Hanken_Grotesk'] font-normal text-[50px] leading-[100%] text-white/40">
                 {item.numero}
               </span>
-              {/* Título */}
               <h3 className="font-['Hanken_Grotesk'] font-bold text-[18px] leading-[120%] uppercase text-white">
                 {item.titulo}
               </h3>
-              {/* Texto */}
               <p className="font-['Hanken_Grotesk'] font-normal text-[14px] leading-[150%] text-white">
                 {item.texto}
               </p>
@@ -60,7 +59,9 @@ export default function CompromisoCuadroRojo() {
         </div>
       </div>
 
-      {/* CSS interno para mobile */}
+      {/* Margen inferior de 30px con mismo background */}
+      <div className="h-[50px]" />
+
       <style jsx>{`
         @media (max-width: 768px) {
           .mobile-ajuste {
