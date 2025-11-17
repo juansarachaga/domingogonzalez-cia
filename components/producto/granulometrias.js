@@ -138,10 +138,10 @@ const GranulometriasDisponibles = () => {
         <div className="w-full md:w-1/2 text-left md:text-left pr-4 md:pr-16 ml-80">
           <ul className="space-y-3 md:space-y-4">
             {[
-              "Tipo Nº2 - Bovinos y Equinos",
-              "Tipo Nº1 - Bobinos",
-              "Tipo Nº0 - Aves y Cerdos",
-              "Tipo Nº00 - Aves",
+              "Tipo Nº2 - Aves (Ponedoras)",
+              "Tipo Nº1 - Aves (Parrilleros)",
+              "Tipo Nº0 - Bovinos",
+              "Tipo Nº00 - Porcinos",
             ].map((tipo, i) => (
               <li
                 key={i}
