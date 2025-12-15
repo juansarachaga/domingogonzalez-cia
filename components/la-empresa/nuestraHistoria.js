@@ -22,12 +22,12 @@ export default function NuestraHistoria() {
         </h2>
 
         <p className="text-[18px] font-normal text-gray-700 leading-[130%] max-w-3xl mx-auto mb-16 mt-10">
-          Domingo González y Cía S.A. nace en 1943 en Los Talas, Berisso, como lavadero y molienda de conchilla. 
-          Con más de 70 años de trayectoria, somos pioneros en el desarrollo de la alimentación animal en Argentina.
+          Desde 1943, sinónimo de confianza en nutrición animal
+Domingo González y Cía S.A. nace en 1943 en Los Talas, Berisso, como lavadero y molienda de conchilla. Con más de 80 años de trayectoria, somos pioneros en el desarrollo de la alimentación animal en Argentina.
         </p>
 
         {/* --- Números destacados --- */}
-        <div className="grid grid-cols-2 md:flex justify-center items-center gap-10 md:gap-16 max-w-5xl mx-auto mb-20">
+        {/* <div className="grid grid-cols-2 md:flex justify-center items-center gap-10 md:gap-16 max-w-5xl mx-auto mb-20">
           {[
             { n: "10k", t: "Gallinas\nponedoras" },
             { n: "5k", t: "Cerdos en\ncría y engorde" },
@@ -44,13 +44,42 @@ export default function NuestraHistoria() {
               {i < 3 && <div className="hidden md:block w-[2px] h-[90px] bg-[#AE0C21]/20"></div>}
             </React.Fragment>
           ))}
-        </div>
+        </div> */}
       </div>
       {/* --- Fin del Contenido Superior --- */}
 
 
-      {/* --- Video (Contenedor más ancho) --- */}
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 text-center overflow-hidden">
+    
+
+
+      {/* --- Contenido Inferior (centrado) --- */}
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
+        {/* Este div w-full era el que tenías antes, lo mantenemos por consistencia */}
+        <div className="w-full max-w-[1800px] mx-auto text-center overflow-hidden">
+          <h3 className="text-[24px] md:text-[32px] font-medium text-[#000000] leading-snug mb-6 px-4 nh-text mx-auto">
+            Todo comenzó con Don Domingo, quien vio el valor del carbonato de calcio. <br/>
+            La empresa creció con esfuerzo, innovación y compromiso.
+          </h3>
+
+          <p className="text-[18px] text-[#707070] leading-[120%] mb-12 px-4 nh-subtext">
+            Hoy, la tercera generación de la familia González continúa el legado, <br />
+            manteniendo vivo el lema del fundador:
+          </p>
+
+          {/* --- Recuadro con abertura inferior --- */}
+          <div className="relative border-[8px] border-[#AE0C21]/10 p-8 md:p-10 w-[90%] lg:w-[80%] xl:w-[100%] mx-auto nh-quote-box">
+            <p className="text-[36px] md:text-[46px] font-semibold text-[#AE0C21] leading-[100%] mt-10 mb-10 nh-quote">
+              “Dar antes que recibir”
+            </p>
+
+            {/* Abertura inferior */}
+            <div className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-[120px] h-[8px] bg-white"></div>
+          </div>
+        </div>
+      </div>
+
+  {/* --- Video (Contenedor más ancho) --- */}
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 text-center overflow-hidden mt-20">
         {/*
           Este contenedor mantiene la relación de aspecto del video (16:9).
         */}
@@ -82,32 +111,6 @@ export default function NuestraHistoria() {
       </div>
       {/* --- Fin del Video --- */}
 
-
-      {/* --- Contenido Inferior (centrado) --- */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
-        {/* Este div w-full era el que tenías antes, lo mantenemos por consistencia */}
-        <div className="w-full max-w-[1800px] mx-auto text-center overflow-hidden">
-          <h3 className="text-[24px] md:text-[32px] font-medium text-[#000000] leading-snug mb-6 px-4 nh-text mx-auto">
-            Todo comenzó con Don Domingo, quien vio el valor del carbonato de calcio. <br/>
-            La empresa creció con esfuerzo, innovación y compromiso.
-          </h3>
-
-          <p className="text-[18px] text-[#707070] leading-[120%] mb-12 px-4 nh-subtext">
-            Hoy, la tercera generación de la familia González continúa el legado, <br />
-            manteniendo vivo el lema del fundador:
-          </p>
-
-          {/* --- Recuadro con abertura inferior --- */}
-          <div className="relative border-[8px] border-[#AE0C21]/10 p-8 md:p-10 w-[90%] lg:w-[80%] xl:w-[100%] mx-auto nh-quote-box">
-            <p className="text-[36px] md:text-[46px] font-semibold text-[#AE0C21] leading-[100%] mt-10 mb-10 nh-quote">
-              “Dar antes que recibir”
-            </p>
-
-            {/* Abertura inferior */}
-            <div className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-[120px] h-[8px] bg-white"></div>
-          </div>
-        </div>
-      </div>
       {/* --- Fin del Contenido Inferior --- */}
 
 
