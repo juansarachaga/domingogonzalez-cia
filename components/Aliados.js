@@ -12,6 +12,17 @@ export default function AliadosEstrategicos() {
     "marca4.png",
     "marca5.png",
     "marca6.png",
+    "marca7.png",
+    "marca8.png",
+    "marca9.png",
+    "marca10.png",
+    "marca11.png",
+    "marca12.png",
+    "marca13.png",
+    "marca14.png",
+    "marca15.png",
+    "marca16.png",
+    "marca17.png",
   ]
 
   const [active, setActive] = useState(0)
