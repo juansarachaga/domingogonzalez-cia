@@ -5,12 +5,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="hero-empresa relative w-full h-[400px] md:h-[450px] lg:h-[550px] flex items-center"
+      className="hero-contacto relative w-full h-[400px] md:h-[450px] lg:h-[550px] flex items-center"
     >
       {/* Imagen optimizada con Next */}
       <Image
-        src="/img/la-empresa/banner-empresa.png"
-        alt="Banner La Empresa"
+        src="/img/calidad/hero-calidad.png"
+        alt="Banner calidad"
         fill
         priority
         quality={100}
@@ -24,10 +24,10 @@ export default function Hero() {
           background:
             "linear-gradient(270deg, rgba(174, 12, 33, 0.7) 0%, rgba(42, 42, 42, 0.7) 100%)",
         }}
-      ></div>
+      />
 
       {/* Contenedor de texto y rectángulo */}
-      <div className="relative z-10 max-w-3xl px-8 text-left mt-[120px] ml-[120px] md:mt-0">
+        <div className="relative z-10 max-w-3xl px-8 text-left mt-[120px] ml-[120px] md:mt-0">
         <div className="relative flex flex-col items-start font-['Hanken_Grotesk'] ml-4 md:ml-[20vw] pt-8 pb-8 scale-90 md:scale-100">
           {/* Borde decorativo */}
           <div className="pointer-events-none absolute -top-8 -left-8 z-0 w-[calc(100%+70px)] h-[calc(100%+32px)]">
@@ -40,7 +40,7 @@ export default function Hero() {
 
           {/* Texto */}
           <h2 className="font-medium text-[36px] md:text-[50px] leading-tight mb-6 z-10 text-white ml-10 mt-2 mb-10">
-            LA EMPRESA
+            CALIDAD
           </h2>
         </div>
       </div>
@@ -49,10 +49,10 @@ export default function Hero() {
         {/* Aquí va el contenido del navbar */}
       </nav>
 
-      {/* 👉 Margen solo en celular horizontal */}
+      {/* 👇 CSS para margen en celular horizontal */}
       <style jsx>{`
         @media (orientation: landscape) and (max-width: 900px) {
-          .hero-empresa {
+          .hero-contacto {
             margin-top: 30px;
           }
         }

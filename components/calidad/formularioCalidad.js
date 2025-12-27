@@ -1,7 +1,7 @@
 // components/formularioCalidad.js
 export default function FormularioCalidad() {
   return (
-    <section className="relative w-full h-screen mt-20">
+    <section className="relative w-full h-screen">
       {/* Fondo de la web (acá podés usar tus colores/gradientes) */}
       <div className="absolute inset-0 bg-[#f5f5f5]" />
 
