@@ -1,131 +1,279 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Link from "next/link"
 
 export default function Hero() {
-  const images = useMemo(
+  const slides = useMemo(
     () => [
-      "/img/home/carrusel/carrusel1.png",
-      "/img/home/carrusel/carrusel2.png",
-      "/img/home/carrusel/carrusel3.png",
-      "/img/home/carrusel/carrusel4.png",
-      "/img/home/carrusel/carrusel5.png",
+      {
+        image: "/img/home/carrusel/carrusel1.png",
+        title: "COMPROMISO\nCON LA CALIDAD",
+        body:
+          "Nuestra experiencia nos permite garantizar una materia prima confiable, segura y de excelente calidad, adaptada a las necesidades de cada productor.",
+        cta: { label: "Contactános", href: "/contacto", variant: "outline" },
+        mobileBgPosition: "center 25%",
+      },
+      {
+        image: "/img/home/carrusel/carrusel2.png",
+        title: "TRAYECTORIA\nY CONFIANZA",
+        body:
+          "Somos una empresa con más de 80 años de historia dedicada al desarrollo y producción de alimentos y suplementos para la nutrición animal, siendo pioneros en Argentina desde 1943.",
+        cta: { label: "Conocé nuestra historia", href: "/la-empresa", variant: "outline" },
+        mobileBgPosition: "center 25%",
+      },
+      {
+        image: "/img/home/carrusel/carrusel3.png",
+        title: "PRODUCCIÓN Y\nCAPACIDAD OPERATIVA",
+        body:
+          "Contamos con planta propia, infraestructura industrial y procesos de lavado, molienda y control que nos permiten garantizar volumen, continuidad y uniformidad en cada entrega.",
+        cta: { label: "Contactános", href: "/contacto", variant: "outline" },
+        mobileBgPosition: "center 25%",
+      },
     ],
     []
   )
 
-  // Timing (suave)
-  const INTERVAL_MS = 13000 // cada cuánto cambia
-  const FADE_MS = 2400     // duración del fade
+  const INTERVAL_MS = 13000
+  const FADE_MS = 3200
+  const EASING = "cubic-bezier(0.4, 0, 0.2, 1)"
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [nextIndex, setNextIndex] = useState(1)
   const [isFading, setIsFading] = useState(false)
 
-  // Preload para que no "salte"
+  const intervalRef = useRef(null)
+  const timeoutRef = useRef(null)
+
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
-    images.forEach((src) => {
+    const check = () => setIsMobile(window.innerWidth < 640) // <sm
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+
+  useEffect(() => {
+    slides.forEach((s) => {
       const img = new Image()
-      img.src = src
+      img.src = s.image
     })
-  }, [images])
+  }, [slides])
+
+  const clearTimers = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    intervalRef.current = null
+    timeoutRef.current = null
+  }
+
+  const goTo = (index) => {
+    if (index === currentIndex || isFading) return
+    clearTimers()
+
+    setNextIndex(index)
+    setIsFading(true)
+
+    timeoutRef.current = setTimeout(() => {
+      setCurrentIndex(index)
+      setIsFading(false)
+    }, FADE_MS)
+  }
 
   useEffect(() => {
-    if (images.length < 2) return
+    if (slides.length < 2) return
 
-    const interval = setInterval(() => {
-      const upcoming = (currentIndex + 1) % images.length
+    clearTimers()
+    intervalRef.current = setInterval(() => {
+      const upcoming = (currentIndex + 1) % slides.length
       setNextIndex(upcoming)
       setIsFading(true)
 
-      const t = setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         setCurrentIndex(upcoming)
         setIsFading(false)
       }, FADE_MS)
-
-      return () => clearTimeout(t)
     }, INTERVAL_MS)
 
-    return () => clearInterval(interval)
-  }, [currentIndex, images.length])
+    return () => clearTimers()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, slides.length])
+
+  const current = slides[currentIndex]
+  const next = slides[nextIndex]
+
+  const bgPositionFor = (slide) => {
+    if (!isMobile) return "center"
+    return slide.mobileBgPosition || "center 25%"
+  }
+
+  const Title = ({ text }) => (
+    <h2
+      className="
+        font-['Hanken_Grotesk'] font-medium text-white text-center tracking-normal
+        text-[36px] leading-[42px]
+        sm:text-[44px] sm:leading-[50px]
+        md:text-[52px] md:leading-[58px]
+        lg:text-[56px] lg:leading-[62px]
+        whitespace-pre-line
+      "
+    >
+      {text}
+    </h2>
+  )
+
+  const Body = ({ text }) => (
+    <p
+      className="
+        font-['Hanken_Grotesk'] font-normal text-white text-center
+        text-[15px] leading-[1.28] tracking-[0.02em]
+        sm:text-[17px] sm:leading-[1.22] sm:tracking-[0.022em]
+        md:text-[18px] md:leading-[1.18] md:tracking-[0.024em]
+        lg:text-[19px] lg:leading-[1.14] lg:tracking-[0.026em]
+        whitespace-normal
+      "
+    >
+      {text}
+    </p>
+  )
+
+  const CTAButton = ({ slide }) => {
+    const outline =
+      "w-[200px] sm:w-[180px] h-[40px] rounded-full border border-white bg-transparent text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-white hover:text-black"
+    const solid =
+      "w-[200px] sm:w-[180px] h-[40px] rounded-full bg-[#AE0C21] text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-[#8B091A]"
+
+    return (
+      <Link href={slide.cta.href}>
+        <button className={slide.cta.variant === "solid" ? solid : outline}>
+          {slide.cta.label}
+        </button>
+      </Link>
+    )
+  }
 
   return (
     <section
       id="home"
-      className="relative w-full h-screen md:h-[800px] flex items-center overflow-hidden"
+      className="relative w-full h-screen md:h-[800px] flex items-center justify-center overflow-hidden"
     >
-      {/* Fondo: capa actual */}
+      <style jsx>{`
+        .hero-body-wrap {
+          max-width: 580px;
+        }
+        @media (max-width: 639px) {
+          .hero-body-wrap {
+            width: 100%;
+            padding-left: 24px;
+            padding-right: 24px;
+            box-sizing: border-box;
+          }
+        }
+      `}</style>
+
+      {/* Fondo actual */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url('${images[currentIndex]}')`,
-          // mantiene el look "cover/center" como tu hero actual
+          backgroundImage: `url('${current.image}')`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: bgPositionFor(current),
+          willChange: "opacity",
         }}
       />
 
-      {/* Fondo: capa siguiente (crossfade) */}
+      {/* Fondo siguiente */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity"
+        className="absolute inset-0 transition-opacity"
         style={{
-          backgroundImage: `url('${images[nextIndex]}')`,
+          backgroundImage: `url('${next.image}')`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: bgPositionFor(next),
           opacity: isFading ? 1 : 0,
           transitionDuration: `${FADE_MS}ms`,
-          transitionTimingFunction: "ease-in-out",
+          transitionTimingFunction: EASING,
+          willChange: "opacity",
         }}
       />
 
-      {/* Overlay con gradiente (igual que antes) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#AE0C21]/70 to-[#2A2A2A]/70 mix-blend-multiply"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#AE0C21]/70 to-[#2A2A2A]/70 mix-blend-multiply" />
 
-      {/* Contenedor para posicionar el rectángulo y el texto */}
-      <div className="relative z-10 max-w-3xl px-8 mt-25 text-left">
-        <div className="relative flex flex-col items-start font-['Hanken_Grotesk'] ml-4 md:ml-[20vw] pt-8 pb-8 scale-90 md:scale-100">
-          {/* Borde en forma de "U" con patitas derechas */}
-          <div className="pointer-events-none absolute -top-8 -left-8 z-0 w-[calc(100%+32px)] h-[calc(100%+32px)]">
-            <div className="absolute left-0 top-0 h-full w-0 border-l-8 border-[#AE0C21]" />
-            <div className="absolute left-0 top-0 w-[52%] h-0 border-t-8 border-[#AE0C21]" />
-            <div className="absolute left-0 bottom-0 w-[52%] h-0 border-b-8 border-[#AE0C21]" />
-            <div className="absolute top-0 left-[52%] h-20 w-0 border-r-8 border-[#AE0C21]" />
-            <div className="absolute bottom-0 left-[52%] h-18 w-0 border-r-8 border-[#AE0C21]" />
+      {/* Contenido */}
+      <div className="relative z-10 w-full px-4 sm:px-6">
+        <div className="relative mx-auto max-w-3xl min-h-[360px] sm:min-h-[380px] md:min-h-[400px]">
+          {/* Capa actual */}
+          <div
+            className="absolute inset-0 flex flex-col items-center transition-opacity"
+            style={{
+              opacity: isFading ? 0 : 1,
+              transitionDuration: `${FADE_MS}ms`,
+              transitionTimingFunction: EASING,
+              pointerEvents: isFading ? "none" : "auto",
+              willChange: "opacity",
+            }}
+          >
+            <div className="flex flex-col items-center gap-6 sm:gap-7 md:gap-8 pt-2">
+              <Title text={current.title} />
+              <div className="w-[78px] md:w-[96px] h-[6px] bg-[#AE0C21] rounded-full" />
+              <div className="hero-body-wrap">
+                <Body text={current.body} />
+              </div>
+              <div className="pt-1">
+                <CTAButton slide={current} />
+              </div>
+            </div>
           </div>
 
-          {/* Texto */}
-          <span className="font-normal text-[18px] leading-[1] tracking-[0%] mt-15 mb-2 z-10 text-white">
-            NOSOTROS
-          </span>
-
-          <h2 className="font-medium text-[50px] leading-[55px] tracking-[0.04em] mb-4 z-10 text-white">
-            CALIDAD Y
-            <br />
-            EXPERIENCIA
-          </h2>
-
-          <div className="w-[90vw] max-w-[520px] z-10">
-            <p className="font-normal text-[16px] leading-[1.3] tracking-[0%] mb-6 text-white">
-              <span className="block">Nuestra experiencia nos permite garantizar una</span>
-              <span className="block">materia prima confiable, segura y de excelente calidad,</span>
-              <span className="block">adaptada a las necesidades de cada productor.</span>
-            </p>
-          </div>
-
-          <div className="mt-5 mb-22 flex gap-4 z-10">
-            <Link href="/producto">
-              <button className="w-[124px] h-[40px] rounded-full bg-[#AE0C21] text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-[#8B091A]">
-                Conocer más
-              </button>
-            </Link>
-            <Link href="/contacto">
-              <button className="w-[120px] h-[40px] rounded-full border border-white bg-transparent text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-white hover:text-black">
-                Contáctanos
-              </button>
-            </Link>
+          {/* Capa siguiente */}
+          <div
+            className="absolute inset-0 flex flex-col items-center transition-opacity"
+            style={{
+              opacity: isFading ? 1 : 0,
+              transitionDuration: `${FADE_MS}ms`,
+              transitionTimingFunction: EASING,
+              pointerEvents: isFading ? "auto" : "none",
+              willChange: "opacity",
+            }}
+          >
+            <div className="flex flex-col items-center gap-6 sm:gap-7 md:gap-8 pt-2">
+              <Title text={next.title} />
+              <div className="w-[78px] md:w-[96px] h-[6px] bg-[#AE0C21] rounded-full" />
+              <div className="hero-body-wrap">
+                <Body text={next.body} />
+              </div>
+              <div className="pt-1">
+                <CTAButton slide={next} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Indicadores */}
+      <div className="absolute left-0 right-0 z-20 bottom-[166px] sm:bottom-[94px] md:bottom-[148px] flex justify-center">
+        <div className="inline-flex items-center gap-2 sm:gap-3">
+          {slides.map((_, i) => {
+            const active = i === currentIndex && !isFading
+            return (
+              <button
+                key={i}
+                aria-label={`Ir al slide ${i + 1}`}
+                onClick={() => goTo(i)}
+                className={`h-[6px] w-[34px] sm:w-[44px] rounded-full transition-opacity ${
+                  active ? "bg-[#AE0C21] opacity-100" : "bg-white/60 opacity-60 hover:opacity-90"
+                }`}
+              />
+            )
+          })}
+        </div>
+      </div>
+
       <nav className="w-full flex justify-center items-center py-4 absolute top-0 left-0 z-20">
-        {/* Aquí va el contenido del navbar */}
+        {/* Navbar */}
       </nav>
     </section>
   )

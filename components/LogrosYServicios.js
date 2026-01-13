@@ -45,7 +45,7 @@ export default function LogrosYServicios() {
               <h3 className="
                 text-[50px] sm:text-[70px] lg:text-[80px] font-semibold text-[#AE0C21] leading-[100%]
               ">
-                80+
+                70+
               </h3>
               <p className="
                 text-gray-600 text-sm sm:text-base
@@ -60,7 +60,7 @@ export default function LogrosYServicios() {
               <h3 className="
                 text-[50px] sm:text-[70px] lg:text-[80px] font-semibold text-[#AE0C21] leading-[100%]
               ">
-                50+
+                150+
               </h3>
               <p className="
                 text-gray-600 text-sm sm:text-base
