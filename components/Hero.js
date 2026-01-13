@@ -19,7 +19,7 @@ export default function Hero() {
         title: "TRAYECTORIA\nY CONFIANZA",
         body:
           "Somos una empresa con más de 80 años de historia dedicada al desarrollo y producción de alimentos y suplementos para la nutrición animal, siendo pioneros en Argentina desde 1943.",
-        cta: { label: "Conocé nuestra historia", href: "/la-empresa", variant: "outline" },
+        cta: { label: "Nuestra historia", href: "/la-empresa", variant: "outline" },
         mobileBgPosition: "center 25%",
       },
       {
@@ -140,8 +140,10 @@ export default function Hero() {
 
   const CTAButton = ({ slide }) => {
     const outline =
-      "w-[200px] sm:w-[180px] h-[40px] rounded-full border border-white bg-transparent text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-white hover:text-black"
-    const solid =
+  slide.cta.label === "Nuestra historia"
+    ? "w-[200px] sm:w-[180px] h-[48px] px-6 mx-6 sm:mx-0 rounded-full border border-white bg-transparent text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-white hover:text-black"
+    : "w-[200px] sm:w-[180px] h-[40px] rounded-full border border-white bg-transparent text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-white hover:text-black"
+ const solid =
       "w-[200px] sm:w-[180px] h-[40px] rounded-full bg-[#AE0C21] text-white font-['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-[#8B091A]"
 
     return (
@@ -200,7 +202,13 @@ export default function Hero() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#AE0C21]/70 to-[#2A2A2A]/70 mix-blend-multiply" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(270deg, rgba(174, 12, 33, 0.7) 0%, rgba(42, 42, 42, 0.7) 100%)",
+        }}
+      />
 
       {/* Contenido */}
       <div className="relative z-10 w-full px-4 sm:px-6">

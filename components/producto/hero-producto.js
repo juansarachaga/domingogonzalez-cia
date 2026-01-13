@@ -27,19 +27,10 @@ export default function Hero() {
       ></div>
 
       {/* Contenedor de texto y rectángulo */}
-       <div className="relative z-10 max-w-3xl px-8 text-left mt-[120px] ml-[120px] md:mt-0">
-        <div className="relative flex flex-col items-start font-['Hanken_Grotesk'] ml-4 md:ml-[20vw] pt-8 pb-8 scale-90 md:scale-100">
-          {/* Borde decorativo */}
-          <div className="pointer-events-none absolute -top-8 -left-8 z-0 w-[calc(100%+70px)] h-[calc(100%+32px)]">
-            <div className="absolute left-0 top-0 h-full w-0 border-l-8 border-[#AE0C21]" />
-            <div className="absolute left-0 top-0 w-[52%] h-0 border-t-8 border-[#AE0C21]" />
-            <div className="absolute left-0 bottom-0 w-[52%] h-0 border-b-8 border-[#AE0C21]" />
-            <div className="absolute top-0 left-[52%] h-8 w-0 border-r-8 border-[#AE0C21]" />
-            <div className="absolute bottom-0 left-[52%] h-8 w-0 border-r-8 border-[#AE0C21]" />
-          </div>
-
+       <div className="relative z-10 max-w-3xl px-8 text-center mt-[120px] md:mt-0 mx-auto">
+        <div className="relative flex flex-col items-center font-['Hanken_Grotesk'] pt-8 pb-8 scale-90 md:scale-100">
           {/* Texto */}
-          <h2 className="font-medium text-[36px] md:text-[50px] leading-tight mb-6 z-10 text-white ml-10 mt-2 mb-10">
+          <h2 className="font-medium text-[36px] md:text-[50px] leading-tight mb-6 z-10 text-white mt-2 mb-10">
             PRODUCTO
           </h2>
         </div>

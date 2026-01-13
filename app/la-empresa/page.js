@@ -8,6 +8,7 @@ import Compromiso from "@/components/la-empresa/compromisoTransparencia"
 import DescargaCertificados from "@/components/la-empresa/descargaCertificados"
 import AliadosEstrategicos from "@/components/Aliados"      
 import PreguntasFrecuentes from "@/components/la-empresa/preguntasFrecuentes"      
+import Iso from "@/components/la-empresa/iso"
 
 export default function LaEmpresaPage() {
   return (
@@ -18,6 +19,7 @@ export default function LaEmpresaPage() {
       <PoliticasDeCalidad />
       <Compromiso />
       <DescargaCertificados />
+      <Iso />
       <AliadosEstrategicos />
       <PreguntasFrecuentes />
       <Contacto />
