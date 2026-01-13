@@ -8,21 +8,18 @@ export default function EstudiosMicroscopias() {
   return (
     <section className="relative w-full bg-white py-24 em-section mt-30">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-        
+
         {/* Texto introductorio */}
         <p
-          className="text-[16px] text-black max-w-3xl mx-auto mb-12"
+          lang="es"
+          className="intro text-[16px] text-black max-w-3xl mx-auto mb-12"
           style={{
             fontFamily: "Hanken Grotesk",
             fontWeight: 400,
             lineHeight: "120%",
           }}
         >
-          Estudios con microscopía SEM del laboratorio CINDECA
-          <br className="em-br" />
-          muestran la porosidad de la conchilla y su contraste con la
-          <br className="em-br" />
-          estructura sólida de la calcita.
+          Estudios con microscopía SEM del laboratorio CINDECA muestran la porosidad de la conchilla y su contraste con la estructura sólida de la calcita. Esto le otorga una superficie específica más de 10 veces mayor y, del mismo modo, una bioaccesibilidad superior para el organismo de la especie animal que la ingiere.
         </p>
 
         {/* Título Carbonato */}
@@ -96,8 +93,14 @@ export default function EstudiosMicroscopias() {
         </p>
       </div>
 
-      {/* 🎯 CSS institucional */}
       <style jsx>{`
+        /* Texto intro: evitar palabra huérfana */
+        .intro {
+          text-wrap: balance;      /* balancea los cortes de línea (lo que querés) */
+          hyphens: auto;           /* permite guionado en español (por eso lang="es") */
+          overflow-wrap: anywhere; /* plan B: evita cortes horribles si algo no entra */
+        }
+
         /* Mostrar saltos de línea solo en desktop */
         .em-br {
           display: inline;

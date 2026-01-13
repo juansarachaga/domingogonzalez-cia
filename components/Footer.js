@@ -39,9 +39,9 @@ export default function Footer() {
                 La Empresa
               </h3>
               <ul className="space-y-2">
-                <li><a href="#home" className="hover:text-[#AE0C21] transition">Home</a></li>
+                <li><a href="\ " className="hover:text-[#AE0C21] transition">Home</a></li>
                 <li><a href="#blog" className="hover:text-[#AE0C21] transition">Blog</a></li>
-                <li><a href="#nosotros" className="hover:text-[#AE0C21] transition">Nosotros</a></li>
+                <li><a href="\la-empresa" className="hover:text-[#AE0C21] transition">Nosotros</a></li>
               </ul>
             </div>
 
