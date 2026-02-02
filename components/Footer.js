@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 
@@ -14,89 +15,124 @@ export default function Footer() {
         <div
           className="max-w-7xl mx-auto px-6 lg:px-12 py-12 
                      grid grid-cols-1 min-[1228px]:grid-cols-2 gap-10 mt-10 min-[1228px]:mt-20 mb-10
-                     max-[1366px]:max-w-[1200px] max-[1366px]:px-8"
+                     max-[1366px]:max-w-[1200px] max-[1366px]:px-8 items-start"
         >
           {/* Columna logo + texto */}
           <div className="flex flex-col items-center min-[1228px]:items-start text-center min-[1228px]:text-left">
-            <Image
-              src="/img/layout/logoHeaderRojo.png"
-              alt="Logo Domingo González & Cía"
-              width={180}
-              height={45}
-              className="mb-4 min-[1228px]:w-[250px] min-[1228px]:h-[60px] w-[180px] h-auto"
-            />
+            <Link href="/" className="inline-block">
+              <Image
+                src="/img/layout/logoHeaderRojo.png"
+                alt="Logo Domingo González & Cía"
+                width={180}
+                height={45}
+                className="mb-4 min-[1228px]:w-[250px] min-[1228px]:h-[60px] w-[180px] h-auto"
+                priority
+              />
+            </Link>
+
             <p className="text-[14px] min-[1228px]:text-[15px] font-normal leading-snug text-gray-700 max-w-xs min-[1228px]:max-w-sm">
               Trabajamos cerca del productor, con compromiso y conocimiento del campo.
             </p>
           </div>
 
           {/* Menús */}
-          <div className="grid grid-cols-2 min-[1228px]:grid-cols-[1fr_1fr_1fr_1.2fr] gap-3 sm:gap-4 min-[1228px]:gap-6 lg:gap-8 text-center min-[1228px]:text-left mt-3">
-
+          <div className="grid grid-cols-2 min-[1228px]:grid-cols-[1fr_1fr_1fr_1.2fr] gap-3 sm:gap-4 min-[1228px]:gap-6 lg:gap-8 text-center min-[1228px]:text-left">
             {/* Columna 1 */}
-            <div>
+            <div className="flex flex-col items-center min-[1228px]:items-start">
+              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">
+                <Link href="/" className="hover:text-[#AE0C21] transition">
+                  Home
+                </Link>
+              </h3>
+           
+            </div>
+
+            {/* Columna 2 */}
+            <div className="flex flex-col items-center min-[1228px]:items-start">
               <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">
                 La Empresa
               </h3>
               <ul className="space-y-2">
-                <li><a href="\ " className="hover:text-[#AE0C21] transition">Home</a></li>
-                <li><a href="#blog" className="hover:text-[#AE0C21] transition">Blog</a></li>
-                <li><a href="\la-empresa" className="hover:text-[#AE0C21] transition">Nosotros</a></li>
-              </ul>
-            </div>
-
-            {/* Columna 2 */}
-            <div>
-              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">Servicios</h3>
-              <ul className="space-y-2">
-                <li><a href="#aves" className="hover:text-[#AE0C21] transition">Aves</a></li>
-                <li><a href="#bovinos" className="hover:text-[#AE0C21] transition">Bovinos</a></li>
-                <li><a href="#cerdos" className="hover:text-[#AE0C21] transition">Cerdos</a></li>
-                <li><a href="#equinos" className="hover:text-[#AE0C21] transition">Equinos</a></li>
-                <li><a href="#otros" className="hover:text-[#AE0C21] transition">Otros</a></li>
+                <li>
+                  <Link href="/la-empresa#certificados" className="hover:text-[#AE0C21] transition">
+                    Certificados
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#aliados" className="hover:text-[#AE0C21] transition">
+                    Clientes
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/la-empresa#preguntasFrecuentes" className="hover:text-[#AE0C21] transition">
+                    FAQS
+                  </Link>
+                </li>
               </ul>
             </div>
 
             {/* Columna 3 */}
-            <div>
+            <div className="flex flex-col items-center min-[1228px]:items-start">
               <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4 whitespace-nowrap">
                 Nuestro Producto
               </h3>
               <ul className="space-y-2">
-                <li><a href="#suplemento" className="hover:text-[#AE0C21] transition">Suplemento</a></li>
-                <li><a href="#aliados" className="hover:text-[#AE0C21] transition">Aliados</a></li>
-                <li><a href="#empresas" className="hover:text-[#AE0C21] transition">Empresas</a></li>
+                <li>
+                  <Link href="/producto" className="hover:text-[#AE0C21] transition">
+                    Qué es
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/producto#usosDelProducto" className="hover:text-[#AE0C21] transition">
+                    Usos
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/producto#fichasTecnicas" className="hover:text-[#AE0C21] transition">
+                    Fichas técnicas
+                  </Link>
+                </li>
               </ul>
             </div>
 
             {/* Columna 4 */}
-            <div>
-              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">Contacto</h3>
-              
-              {/* Mails */}
-              <p className="text-[13px] sm:text-[14px] min-[1228px]:text-[15px] text-gray-700 mb-1 break-words">
-                <a href="mailto:ventas@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
-                  ventas@domgonsa.com.ar
-                </a>
-              </p>
-              <p className="text-[13px] sm:text-[14px] min-[1228px]:text-[15px] text-gray-700 mb-4 break-words">
-                <a href="mailto:domgonsa@domgonsa.com.ar" className="hover:text-[#AE0C21] transition">
-                  domgonsa@domgonsa.com.ar
-                </a>
-              </p>
+            <div className="flex flex-col items-center min-[1228px]:items-start">
+              <h3 className="text-[14px] min-[1228px]:text-[15px] font-semibold mb-4">
+                Contacto
+              </h3>
 
-              {/* Teléfono con ícono WhatsApp */}
-              <div className="flex items-center justify-center min-[1228px]:justify-start text-gray-700 mt-2">
-                <a 
-                  href="https://wa.me/5492268455176?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web." 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center text-[14px] min-[1228px]:text-[15px] hover:text-[#AE0C21] transition whitespace-nowrap"
-                >
-                  <FontAwesomeIcon icon={faWhatsapp} size="lg" className="text-gray-700 mr-[2px] flex-shrink-0" />
-                  +54&nbsp;9&nbsp;2268&nbsp;45-5176
-                </a>
-              </div>
+              {/* Mantengo estructura UL para nivelar columnas */}
+              <ul className="space-y-2 w-full">
+                <li className="text-[13px] sm:text-[14px] min-[1228px]:text-[15px] text-gray-700 break-words">
+                  <a
+                    href="mailto:ventas@domgonsa.com.ar"
+                    className="hover:text-[#AE0C21] transition"
+                  >
+                    ventas@domgonsa.com.ar
+                  </a>
+                </li>
+
+                <li className="text-[13px] sm:text-[14px] min-[1228px]:text-[15px] text-gray-700 break-words">
+                  <a
+                    href="mailto:domgonsa@domgonsa.com.ar"
+                    className="hover:text-[#AE0C21] transition"
+                  >
+                    domgonsa@domgonsa.com.ar
+                  </a>
+                </li>
+
+                <li className="flex justify-center min-[1228px]:justify-start text-gray-700">
+                  <a
+                    href="https://wa.me/5492268455176?text=Hola%20👋%2C%20te%20escribo%20desde%20la%20página%20web."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-[14px] min-[1228px]:text-[15px] hover:text-[#AE0C21] transition whitespace-nowrap"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} size="lg" className="text-gray-700 mr-[6px] flex-shrink-0" />
+                    +54&nbsp;9&nbsp;2268&nbsp;45-5176
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

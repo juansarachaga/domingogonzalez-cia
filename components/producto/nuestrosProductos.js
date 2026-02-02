@@ -55,44 +55,53 @@ Un buen balance mineral asegura animales sanos, mayor rendimiento y una mejor ef
       ],
       nota: "La relación ideal calcio/fósforo es de 1,4–2:1. La vitamina D regula el metabolismo del calcio; su deficiencia resulta perjudicial.",
     },
+
     aves: {
       titulo: "Aves",
       descripcion: `
-La nutrición mineral en aves es clave para el desarrollo óseo, la formación de cáscara y la producción de huevos. 
-El calcio y el fósforo son esenciales para mantener una estructura ósea sólida y evitar problemas metabólicos como la descalcificación o el síndrome de la cáscara blanda.
+La importancia del calcio en la nutrición avícola
 
-Las aves requieren aportes precisos y continuos para garantizar su bienestar y rendimiento productivo.
+El calcio es un nutriente esencial en la dieta de las aves, clave para su salud, crecimiento y productividad. En las primeras etapas de vida, las aves presentan una estructura ósea inmadura y una relación calcio fósforo inferior a la del adulto, por lo que necesitan un aporte temprano y equilibrado de calcio, fósforo y vitamina D.
+
+La deficiencia de calcio impacta directamente en la producción avícola, generando huevos con cáscara delgada, baja incubabilidad y, en casos severos, el cese total de la postura. Para prevenir estos problemas y favorecer el desarrollo de animales jóvenes, el carbonato de calcio orgánico de conchilla se destaca como una fuente de alta disponibilidad biológica.
+
+La carencia de calcio se observa especialmente en sistemas de postura, aunque también afecta a los parrilleros, provocando fracturas, menor engorde y bajo rendimiento. Una correcta suplementación mejora la absorción mineral, fortalece la estructura ósea y optimiza resultados productivos generales.
       `,
-      dosisTitulo: "Dosis orientativas de carbonato de calcio",
+      dosisTitulo: "Recomendaciones de inclusión de carbonato de calcio",
       dosis: [
-        { label: "PONEDORAS", valor: "40 - 60 g" },
-        { label: "RECRÍA", valor: "25 - 35 g" },
-        { label: "BROILERS", valor: "20 - 30 g" },
+        { label: "POLLOS 0 A 8 SEMANAS", valor: "2,5 % (≈ 0,9 % Ca)" },
+        { label: "POLLOS 8 A 10 SEMANAS", valor: "1,5 % (≈ 0,6 % Ca)" },
+        { label: "PONEDORAS", valor: "7,0 % a 8,5 % (≈ 2,75 % a 3,0 % Ca)" },
       ],
-      nota: "Un correcto balance de calcio y fósforo asegura buena formación de cáscaras y mayor eficiencia alimenticia.",
+      nota: "La relación calcio:fósforo debe ajustarse según la edad y el destino productivo del ave, manteniéndose entre 1,5:1 y 3:1.",
     },
+
     cerdos: {
       titulo: "Cerdos",
       descripcion: `
-Los cerdos necesitan calcio y fósforo en equilibrio para el desarrollo óseo, muscular y reproductivo. 
-El déficit de calcio afecta el crecimiento y puede causar raquitismo o debilidad estructural en las patas.
+El rol del calcio en la nutrición porcina
 
-La suplementación debe adaptarse a la edad y etapa productiva de cada animal para optimizar el rendimiento y evitar carencias.
+El calcio es un elemento fundamental en el desarrollo esquelético del cerdo y cumple un papel clave durante las etapas de crecimiento, gestación y lactancia. Una administración deficiente se manifiesta en múltiples trastornos, como retraso o detención del crecimiento, menor consumo de alimento, deterioro de piel y pelaje, debilitamiento óseo y alteraciones reproductivas.
+
+Un adecuado aporte de calcio permite maximizar el rendimiento productivo y mantener animales más sanos y eficientes en cada etapa de su ciclo.
       `,
-      dosisTitulo: "Dosis orientativas de carbonato de calcio",
+      dosisTitulo: "Recomendaciones de inclusión diaria de carbonato de calcio",
       dosis: [
-        { label: "LECHONES", valor: "10 - 20 g" },
-        { label: "CERDOS EN ENGORDE", valor: "25 - 35 g" },
-        { label: "MADRES", valor: "40 - 50 g" },
+        { label: "CRECIMIENTO 5 A 10 KG PV", valor: "12 a 15 g/día (≈ 0,8 % Ca)" },
+        { label: "CRECIMIENTO 20 A 35 KG PV", valor: "25 a 30 g/día (≈ 0,65 % Ca)" },
+        { label: "CERDAS EN GESTACIÓN 110 A 250 KG PV", valor: "35 g/día (≈ 0,75 % Ca)" },
+        { label: "CERDAS EN LACTANCIA", valor: "70 g/día (≈ 0,75 % Ca)" },
+        { label: "REPRODUCTORES MACHOS", valor: "35 a 40 g/día (≈ 0,75 % Ca)" },
       ],
-      nota: "El equilibrio calcio/fósforo y el aporte de vitamina D son claves para evitar desórdenes óseos y metabólicos.",
+      nota: "Para lograr un correcto desarrollo óseo, es fundamental mantener una relación equilibrada calcio:fósforo (1,1:1 a 1,5:1) y asegurar un adecuado suministro de vitamina D, optimizando así la absorción y el metabolismo mineral.",
     },
   }
 
   const info = textos[activo]
 
   return (
-    <section className="relative w-full py-20 bg-white np-section">
+    <section id="usosDelProducto"
+    className="relative w-full py-20 bg-white np-section">
       <div className="max-w-7xl mx-auto mt-20">
         {/* Galería siempre horizontal */}
         <div className="flex w-full h-[360px] sm:h-[420px]">
@@ -134,10 +143,7 @@ La suplementación debe adaptarse a la edad y etapa productiva de cada animal pa
                 </p>
 
                 {activo === p.id ? (
-                  <ChevronDown
-                    className="text-white mt-6 animate-bounce"
-                    size={32}
-                  />
+                  <ChevronDown className="text-white mt-6 animate-bounce" size={32} />
                 ) : (
                   <span
                     className="mt-6 text-white text-[14px] sm:text-[14px] px-6 py-2 sm:px-6 sm:py-2 rounded-full"

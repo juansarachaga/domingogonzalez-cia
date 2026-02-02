@@ -13,37 +13,38 @@ export default function PreguntasFrecuentes() {
     {
       pregunta: "¿Cómo puedo pedir presupuesto o contactar?",
       respuesta:
-        "Podés contactarnos a través del formulario de contacto en nuestra web o enviarnos un correo a info@domingogonzalez.com.ar. También estamos disponibles por teléfono o WhatsApp para consultas directas.",
+        "Podés contactarnos a través del formulario de contacto en nuestra web o enviarnos un correo a ventas@domgonsa.com.ar. También estamos disponibles por teléfono o WhatsApp para consultas directas; estos números se encuentran disponibles en la sección de Contacto.",
     },
     {
       pregunta: "¿Cuál es el proceso de entrega y envío?",
       respuesta:
-        "Realizamos entregas en todo el país. Los pedidos se preparan en nuestra planta y se despachan a través de transportes de confianza, asegurando puntualidad y calidad en la entrega.",
+        "Realizamos entregas en todo el país. Los pedidos se preparan en nuestra planta y se despachan a través de transportes de confianza, asegurando puntualidad y calidad en la entrega. Para más información, también podés escribirnos a ventas@domgonsa.com.ar.",
     },
     {
       pregunta: "¿Ofrecen asistencia técnica o asesoramiento sobre uso?",
       respuesta:
-        "Sí, contamos con un equipo especializado que brinda asesoramiento técnico sobre la correcta aplicación y uso de nuestros productos.",
+        "Sí, contamos con un equipo especializado que brinda asesoramiento técnico sobre la correcta aplicación y uso de nuestros productos. Además, en la sección de Calidad podés encontrar información detallada sobre las características y especificaciones del producto.",
     },
     {
       pregunta: "¿La empresa tiene una política de calidad establecida?",
       respuesta:
-        "En Domingo Gonzalez y CIA S.A aplicamos una política de calidad basada en la mejora continua, la selección de materia prima natural y controles durante todo el proceso de lavado y molienda para asegurar un producto limpio, uniforme y libre de impurezas.",
+        "En Domingo González y Cía S.A aplicamos una política de calidad basada en la mejora continua, la selección de materia prima natural y controles durante todo el proceso de lavado y molienda para asegurar un producto limpio, uniforme y libre de impurezas.",
     },
     {
       pregunta: "¿Cuentan con servicio al consumidor y reclamos?",
       respuesta:
-        "Sí, disponemos de un canal de atención al cliente para recibir consultas, sugerencias o reclamos y brindar una respuesta rápida y efectiva.",
+        "Sí, disponemos de un canal de atención al cliente para recibir consultas, sugerencias o reclamos. Para ello, podés comunicarte a través de la sección de Contacto, donde nuestro equipo brindará una respuesta rápida y efectiva.",
     },
     {
       pregunta: "¿Dónde están ubicados?",
       respuesta:
-        "Nuestra planta se encuentra en Los Talas, Berisso, provincia de Buenos Aires, y atendemos a todo el país.",
+        "Nuestra planta se encuentra en Los Talas, Berisso, Provincia de Buenos Aires, y atendemos a todo el país. En la sección de Contacto podés encontrar un mapa con nuestra ubicación.",
     },
   ]
 
   return (
-    <section className="w-full py-20 bg-white px-6 md:px-20 max-w-6xl mx-auto mt-30 pf-section">
+    <section id="preguntasFrecuentes"
+    className="w-full py-20 bg-white px-6 md:px-20 max-w-6xl mx-auto mt-30 pf-section">
       {/* --- Título --- */}
       <h2 className="text-[40px] font-normal text-[#000000] mb-10 text-left pf-title">
         Preguntas más frecuentes
@@ -66,7 +67,7 @@ export default function PreguntasFrecuentes() {
                 }`}
               >
                 <h3
-                  className={`font-semibold text-[23px] leading-snug flex-1 transition-colors duration-300 pf-question`}
+                  className="font-semibold text-[23px] leading-snug flex-1 transition-colors duration-300 pf-question"
                   style={{ fontFamily: "Hanken Grotesk" }}
                 >
                   {item.pregunta}

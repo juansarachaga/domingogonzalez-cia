@@ -26,7 +26,8 @@ export default function AliadosEstrategicos() {
   ]
 
   return (
-    <section className="w-full py-16 bg-white mt-20" id="aliados">
+    <section 
+    className="w-full py-16 bg-white mt-20" id="aliados">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center">
         <span className="font-['Hanken_Grotesk'] font-light text-[18px] tracking-[0.05em] text-[#AE0C21] uppercase mb-4">
           ALIADOS ESTRATÉGICOS

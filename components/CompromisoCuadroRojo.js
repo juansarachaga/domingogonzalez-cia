@@ -23,7 +23,8 @@ export default function CompromisoCuadroRojo() {
   ]
 
   return (
-    <section className="w-full bg-[#AE0C21] py-16">
+    <section
+    className="w-full bg-[#AE0C21] py-16">
       {/* Margen superior de 30px con mismo background */}
       <div className="h-[50px]" />
 
