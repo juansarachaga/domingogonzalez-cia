@@ -105,13 +105,14 @@ const DescargaCertificados = () => {
   ];
 
   return (
-    <section className="relative w-full bg-[#F9F9F9] py-24 my-28 flex justify-center overflow-hidden">
+    <section id="certificados"
+    className="relative w-full bg-[#F9F9F9] py-24 my-28 flex justify-center overflow-hidden>">
       {/* Barras laterales */}
       <div className="hidden md:block left-bar" />
       <div className="hidden md:block right-bar" />
 
       {/* Contenido principal */}
-      <div className="descarga-certificados-container w-full max-w-[1100px] flex flex-col md:flex-row justify-between items-center md:items-start gap-16 px-6 md:px-16 z-10 mt-30 mb-30">
+      <div className="descarga-certificados-container w-full max-w-[1100px] flex flex-col md:flex-row justify-between items-center md:items-start gap-16 px-6 md:px-16 z-10 mt-30 mb-30 id='certificados'">
         {/* Bloque de texto */}
         <div className="w-full md:w-1/2 text-center md:text-left">
           <p

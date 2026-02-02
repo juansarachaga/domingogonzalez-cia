@@ -106,7 +106,8 @@ const DescargaFichaTecnica = () => {
   ];
 
   return (
-    <section className="relative w-full bg-[#F9F9F9] py-24 my-28 flex justify-center overflow-hidden">
+    <section id="fichasTecnicas"
+    className="relative w-full bg-[#F9F9F9] py-24 my-28 flex justify-center overflow-hidden">
       {/* Barras laterales */}
       <div className="hidden md:block left-bar" />
       <div className="hidden md:block right-bar" />
