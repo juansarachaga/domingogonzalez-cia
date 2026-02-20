@@ -9,7 +9,7 @@ export default function Hero() {
     >
       {/* Imagen optimizada con Next */}
       <Image
-        src="/img/la-empresa/banner-empresa.png"
+        src="/img/la-empresa/banner-empresa.jpeg"
         alt="Banner La Empresa"
         fill
         priority

@@ -75,7 +75,7 @@ export default function LogrosYServicios() {
       {/* Línea superior izquierda */}
       <div className="w-1/3 border-t-[8px] border-[#AE0C21]/10 mt-12 mr-auto" />
 
-      {/* SERVICIOS (Esta parte no se tocó y sigue igual) */}
+      {/* SERVICIOS (iconos estáticos: sin hover ni redirección) */}
       <div className="max-w-7xl mx-auto px-8 sm:px-10 md:px-12 lg:px-16">
         
         <div className="text-center mb-12 mt-16 max-w-lg mx-auto">
@@ -95,17 +95,16 @@ export default function LogrosYServicios() {
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
           {servicios.map((s) => (
-            <a
+            <div
               key={s.id}
-              href={`#${s.id}`}
-              className="max-w-xs mx-auto p-6 rounded-md border border-transparent transition duration-300 group flex flex-col"
+              className="max-w-xs mx-auto p-6 rounded-md border border-transparent flex flex-col"
             >
               <Image
                 src={s.img}
                 alt={s.nombre}
                 width={60}
                 height={60}
-                className="mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
+                className="mx-auto mb-4"
               />
               <h3 className="
                 text-[18px] sm:text-[20px] font-medium tracking-[0.05em] text-[#AE0C21] mb-2
@@ -113,12 +112,12 @@ export default function LogrosYServicios() {
               ">
                 {s.nombre}
               </h3>
-            </a>
+            </div>
           ))}
         </div>
         
         <div className="flex justify-center mb-20">
-          <Link href="/producto">
+          <Link href="/producto/#usosDelProducto">
             <button className="w-[120px] h-[40px] rounded-full border border-[#AE0C21] bg-[#AE0C21] text-white font['Hanken_Grotesk'] font-normal text-[16px] transition hover:bg-[#8B091A] mt-10">
                Conocé más
             </button>

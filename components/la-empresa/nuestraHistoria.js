@@ -23,7 +23,7 @@ export default function NuestraHistoria() {
 
         <p className="text-[18px] font-normal text-gray-700 leading-[130%] max-w-3xl mx-auto mb-16 mt-10">
           Desde 1943, sinónimo de confianza en nutrición animal
-Domingo González y Cía S.A. nace en 1943 en Los Talas, Berisso, como lavadero y molienda de conchilla. Con más de 80 años de trayectoria, somos pioneros en el desarrollo de la alimentación animal en Argentina.
+Domingo González y Cía S.A. nace en Los Talas, Berisso, como lavadero y molienda de conchilla. Con más de 80 años de trayectoria, somos pioneros en el desarrollo de la alimentación animal en Argentina.
         </p>
 
         {/* --- Números destacados --- */}

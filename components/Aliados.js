@@ -22,18 +22,18 @@ export default function AliadosEstrategicos() {
     "16marca.png",
     "17marca.png",
     "18marca.png",
-    
   ]
 
   return (
-    <section 
-    className="w-full py-16 bg-white mt-20" id="aliados">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center">
-        <span className="font-['Hanken_Grotesk'] font-light text-[18px] tracking-[0.05em] text-[#AE0C21] uppercase mb-4">
+    <section className="w-full py-16 bg-white mt-20" id="aliados">
+      {/* ✅ CAMBIO: más márgenes laterales en mobile */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col items-center">
+        <span className="font-['Hanken_Grotesk'] font-light text-[16px] sm:text-[18px] tracking-[0.05em] text-[#AE0C21] uppercase mb-4">
           ALIADOS ESTRATÉGICOS
         </span>
 
-        <h2 className="font-['Hanken_Grotesk'] font-normal text-[40px] text-center text-black mb-10">
+        {/* ✅ CAMBIO: título más chico en mobile */}
+        <h2 className="font-['Hanken_Grotesk'] font-normal text-[26px] sm:text-[34px] lg:text-[40px] text-center text-black mb-10">
           Nos eligen, crecemos juntos
         </h2>
 

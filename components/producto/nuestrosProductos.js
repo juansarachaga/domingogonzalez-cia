@@ -67,7 +67,7 @@ La deficiencia de calcio impacta directamente en la producción avícola, genera
 
 La carencia de calcio se observa especialmente en sistemas de postura, aunque también afecta a los parrilleros, provocando fracturas, menor engorde y bajo rendimiento. Una correcta suplementación mejora la absorción mineral, fortalece la estructura ósea y optimiza resultados productivos generales.
       `,
-      dosisTitulo: "Recomendaciones de inclusión de carbonato de calcio",
+      dosisTitulo: "Dosis recomendadas de carbonato de calcio",
       dosis: [
         { label: "POLLOS 0 A 8 SEMANAS", valor: "2,5 % (≈ 0,9 % Ca)" },
         { label: "POLLOS 8 A 10 SEMANAS", valor: "1,5 % (≈ 0,6 % Ca)" },
@@ -85,7 +85,7 @@ El calcio es un elemento fundamental en el desarrollo esquelético del cerdo y c
 
 Un adecuado aporte de calcio permite maximizar el rendimiento productivo y mantener animales más sanos y eficientes en cada etapa de su ciclo.
       `,
-      dosisTitulo: "Recomendaciones de inclusión diaria de carbonato de calcio",
+      dosisTitulo: "Dosis recomendadas de carbonato de calcio",
       dosis: [
         { label: "CRECIMIENTO 5 A 10 KG PV", valor: "12 a 15 g/día (≈ 0,8 % Ca)" },
         { label: "CRECIMIENTO 20 A 35 KG PV", valor: "25 a 30 g/día (≈ 0,65 % Ca)" },
@@ -100,8 +100,7 @@ Un adecuado aporte de calcio permite maximizar el rendimiento productivo y mante
   const info = textos[activo]
 
   return (
-    <section id="usosDelProducto"
-    className="relative w-full py-20 bg-white np-section">
+    <section id="usosDelProducto" className="relative w-full py-20 bg-white np-section">
       <div className="max-w-7xl mx-auto mt-20">
         {/* Galería siempre horizontal */}
         <div className="flex w-full h-[360px] sm:h-[420px]">
@@ -122,9 +121,7 @@ Un adecuado aporte de calcio permite maximizar el rendimiento productivo y mante
 
               <div
                 className={`absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-500 p-4 ${
-                  activo === p.id
-                    ? "bg-[#AE0C2166]"
-                    : "bg-white/70 hover:bg-[#AE0C21]/40"
+                  activo === p.id ? "bg-[#AE0C2166]" : "bg-white/70 hover:bg-[#AE0C21]/40"
                 }`}
               >
                 <Image
@@ -169,9 +166,20 @@ Un adecuado aporte de calcio permite maximizar el rendimiento productivo y mante
             {info.titulo}
           </h3>
 
-          <p className="whitespace-pre-line text-[18px] sm:text-[20px] leading-[160%] mb-10 sm:mb-12 text-black">
-            {info.descripcion}
-          </p>
+          {/* ✅ CAMBIO (opción recomendada): render en párrafos reales */}
+          <div className="mb-10 sm:mb-12 text-black">
+            {info.descripcion
+              .trim()
+              .split(/\n\s*\n/) // separa por líneas en blanco
+              .map((parrafo, idx) => (
+                <p
+                  key={idx}
+                  className="text-[18px] sm:text-[20px] leading-[160%] mb-6 whitespace-pre-line"
+                >
+                  {parrafo.trim()}
+                </p>
+              ))}
+          </div>
 
           <h4 className="text-[26px] sm:text-[32px] font-normal mb-8 text-black">
             {info.dosisTitulo}
@@ -183,7 +191,9 @@ Un adecuado aporte de calcio permite maximizar el rendimiento productivo y mante
                 <p className="text-[22px] uppercase tracking-[0.05em] mb-2 text-[#AE0C21] font-medium">
                   {d.label}
                 </p>
-                <p className="text-[32px] sm:text-[40px] text-black">
+
+                {/* ✅ Tipografía del valor más chica */}
+                <p className="text-[24px] sm:text-[30px] md:text-[25px] text-black">
                   {d.valor}
                 </p>
               </div>
